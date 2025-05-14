@@ -13,21 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 
+    // Scroll event handler for nav background
+    const nav = document.querySelector('.god_nav');
     
+    function checkScroll() {
+        const winScroll = window.scrollY || window.pageYOffset;
+        
+        if (winScroll > 205) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
 
-    // Scroll event handlers
-    window.addEventListener('scroll', () => {
         if (winScroll > 300) {
             backToTop.classList.add('visible');
         } else {
             backToTop.classList.remove('visible');
         }
+    }
 
-        // Check for elements in viewport
-        checkElementsInView();
-
-
-    });
+    // Initial check and event listener
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
 
     // Back to top click handler
     backToTop.addEventListener('click', () => {
@@ -98,4 +105,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-}); 
+});

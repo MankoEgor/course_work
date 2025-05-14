@@ -37,6 +37,10 @@ $shadows: (
     z-index: 1000;
     padding: 20px 0;
 
+    &.scrolled{
+        background: map-get($god-colors, primary);
+    }
+
     &__container {
         max-width: 1200px;
         margin: 0 auto;
