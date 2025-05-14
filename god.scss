@@ -1,0 +1,377 @@
+$god-colors: (
+    primary: #2c3e50,
+    secondary: #34495e,
+    accent: #ffd700,
+    text: #ecf0f1,
+    light: #95a5a6,
+    dark: #2c3e50
+);
+
+$god-shadows: (
+    text: 0 2px 4px rgba(0, 0, 0, 0.3),
+    card: 0 4px 6px rgba(0, 0, 0, 0.2),
+    hover: 0 6px 12px rgba(0, 0, 0, 0.3),
+    accent: 0 4px 6px rgba(#ffd700, 0.3)
+);
+
+$transitions: (
+    default: all 0.3s ease
+);
+
+$shadows: (
+    default: 0 2px 10px rgba(0, 0, 0, 0.1)
+);
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.god_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: map-get($god-shadows, default);
+    z-index: 1000;
+    padding: 20px 0;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        @include flex-between;
+    }
+
+    &__logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: map-get($god-colors, text);
+        text-decoration: none;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    &__link {
+        color: map-get($god-colors, text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: map-get($transitions, default);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: map-get($god-colors, text);
+            transition: map-get($transitions, default);
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+// God page specific styles
+.god-page {
+    background: linear-gradient(135deg, map-get($god-colors, primary), map-get($god-colors, secondary));
+    color: map-get($god-colors, text);
+}
+
+// Hero section
+.god-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: url(god_heavans.jpg) center/cover no-repeat;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: map-get($god-colors, text);
+        text-shadow: map-get($god-shadows, accent);
+        animation: fadeInDown 1s ease-out;
+    }
+
+    &__subtitle {
+        font-size: 2rem;
+        color: map-get($god-colors, text);
+        text-shadow: map-get($god-shadows, text);
+        animation: fadeInUp 1s ease-out 0.5s both;
+    }
+}
+
+// Attributes section
+.god-attributes {
+    padding: 100px 0;
+    background: map-get($god-colors, secondary);
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    &__text {
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: map-get($god-colors, accent);
+        }
+    }
+}
+
+.attributes-list {
+    list-style: none;
+}
+
+.attribute-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateX(10px);
+    }
+}
+
+.attribute-title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: map-get($god-colors, accent);
+    margin-bottom: 10px;
+}
+
+.attribute-description {
+    color: map-get($god-colors, light);
+    line-height: 1.6;
+}
+
+.attributes-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(map-get($god-shadows, card));
+}
+
+// Creation timeline
+.god-creation {
+    padding: 100px 0;
+    background: map-get($god-colors, primary);
+}
+
+.creation-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: map-get($god-colors, accent);
+        transform: translateX(-50%);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 0 40px;
+
+    &:nth-child(odd) {
+        left: 0;
+    }
+
+    &:nth-child(even) {
+        left: 50%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: map-get($god-colors, accent);
+        border-radius: 50%;
+        right: -10px;
+    }
+
+    &:nth-child(even)::before {
+        left: -10px;
+    }
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: map-get($god-shadows, card);
+
+    h3 {
+        color: map-get($god-colors, accent);
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: map-get($god-colors, light);
+    }
+}
+
+// Relationship section
+.god-relationship {
+    padding: 100px 0;
+    background: map-get($god-colors, secondary);
+}
+
+.relationship-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 50px;
+        color: map-get($god-colors, accent);
+    }
+}
+
+.relationship-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.relationship-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: map-get($god-shadows, card);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($god-shadows, hover);
+    }
+
+    h3 {
+        color: map-get($god-colors, accent);
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    p {
+        color: map-get($god-colors, light);
+    }
+}
+
+// Animations
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .god-hero {
+        &__title {
+            font-size: 3rem;
+        }
+        &__subtitle {
+            font-size: 1.5rem;
+        }
+    }
+
+    .god-attributes {
+        &__container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .creation-timeline {
+        &::before {
+            left: 20px;
+        }
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+
+        &::before {
+            left: 10px !important;
+        }
+    }
+
+    .relationship-cards {
+        grid-template-columns: 1fr;
+    }
+} 

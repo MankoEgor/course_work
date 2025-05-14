@@ -1,0 +1,344 @@
+.spirit-page {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.spirit-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  overflow: hidden;
+}
+.spirit-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+.spirit-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: 6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+.spirit-hero__subtitle {
+  font-size: 2.5rem;
+  color: #4a90e2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 2s ease-out;
+}
+.spirit-hero__flames {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.flame {
+  width: 60px;
+  height: 100px;
+  background: #ff6b6b;
+  border-radius: 50% 50% 20% 20%;
+  position: relative;
+  animation: flicker 3s ease-in-out infinite;
+}
+.flame::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.flame:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.flame:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.spirit-nature {
+  padding: 100px 0;
+  background: #2d2d2d;
+}
+
+.nature-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.nature-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #4a90e2;
+}
+
+.nature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.nature-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.nature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+.nature-card .nature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+.nature-card .nature-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+}
+.nature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #4a90e2;
+}
+.nature-card p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.spirit-gifts {
+  padding: 100px 0;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.gifts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.gifts-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #4a90e2;
+}
+
+.gifts-wheel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  perspective: 1000px;
+}
+
+.gift-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+.gift-item:hover {
+  transform: rotateY(10deg) translateZ(20px);
+}
+.gift-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #4a90e2;
+}
+.gift-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.spirit-fruit {
+  padding: 100px 0;
+  background: #2d2d2d;
+}
+
+.fruit-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.fruit-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #4a90e2;
+}
+
+.fruit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.fruit-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.fruit-item:hover {
+  background: rgba(74, 144, 226, 0.1);
+  transform: scale(1.05);
+}
+.fruit-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #4a90e2;
+}
+.fruit-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.spirit-ministry {
+  padding: 100px 0;
+  background: #1a1a1a;
+}
+
+.ministry-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.ministry-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #4a90e2;
+}
+
+.ministry-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.ministry-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #4a90e2;
+  transform: translateX(-50%);
+}
+
+.ministry-event {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 0 40px;
+}
+.ministry-event:nth-child(odd) {
+  left: 0;
+}
+.ministry-event:nth-child(even) {
+  left: 50%;
+}
+.ministry-event::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #4a90e2;
+  border-radius: 50%;
+  right: -10px;
+}
+.ministry-event:nth-child(even)::before {
+  left: -10px;
+}
+
+.event-title {
+  display: block;
+  font-size: 1.5rem;
+  color: #4a90e2;
+  margin-bottom: 10px;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.8), 0 0 30px rgba(74, 144, 226, 0.6);
+  }
+}
+@keyframes flicker {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.8);
+    opacity: 0.8;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  .spirit-hero__title {
+    font-size: 4rem;
+  }
+  .spirit-hero__subtitle {
+    font-size: 2rem;
+  }
+  .nature-grid,
+  .gifts-wheel {
+    grid-template-columns: 1fr;
+  }
+  .fruit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ministry-timeline::before {
+    left: 20px;
+  }
+  .ministry-event {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px;
+  }
+  .ministry-event::before {
+    left: 10px !important;
+  }
+}/*# sourceMappingURL=spirit.css.map */

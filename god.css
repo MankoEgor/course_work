@@ -1,0 +1,302 @@
+.god_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+}
+.god_nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.god_nav__logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ecf0f1;
+  text-decoration: none;
+}
+.god_nav__list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.god_nav__link {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.god_nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ecf0f1;
+  transition: all 0.3s ease;
+}
+.god_nav__link:hover::after {
+  width: 100%;
+}
+
+.god-page {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+}
+
+.god-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: url(god_heavans.jpg) center/cover no-repeat;
+}
+.god-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.god-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+.god-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ecf0f1;
+  text-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
+  animation: fadeInDown 1s ease-out;
+}
+.god-hero__subtitle {
+  font-size: 2rem;
+  color: #ecf0f1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.god-attributes {
+  padding: 100px 0;
+  background: #34495e;
+}
+.god-attributes__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.god-attributes__text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #ffd700;
+}
+
+.attributes-list {
+  list-style: none;
+}
+
+.attribute-item {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.attribute-item:hover {
+  transform: translateX(10px);
+}
+
+.attribute-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.attribute-description {
+  color: #95a5a6;
+  line-height: 1.6;
+}
+
+.attributes-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.god-creation {
+  padding: 100px 0;
+  background: #2c3e50;
+}
+
+.creation-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px 0;
+}
+.creation-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #ffd700;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 0 40px;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #ffd700;
+  border-radius: 50%;
+  right: -10px;
+}
+.timeline-item:nth-child(even)::before {
+  left: -10px;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.timeline-content h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+.timeline-content p {
+  color: #95a5a6;
+}
+
+.god-relationship {
+  padding: 100px 0;
+  background: #34495e;
+}
+
+.relationship-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.relationship-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #ffd700;
+}
+
+.relationship-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.relationship-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.relationship-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.relationship-card h3 {
+  color: #ffd700;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+.relationship-card p {
+  color: #95a5a6;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .god-hero__title {
+    font-size: 3rem;
+  }
+  .god-hero__subtitle {
+    font-size: 1.5rem;
+  }
+  .god-attributes__container {
+    grid-template-columns: 1fr;
+  }
+  .creation-timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px;
+  }
+  .timeline-item::before {
+    left: 10px !important;
+  }
+  .relationship-cards {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=god.css.map */

@@ -1,0 +1,408 @@
+// Spirit page specific variables
+$spirit-colors: (
+    primary: #1a1a1a,
+    secondary: #2d2d2d,
+    accent: #4a90e2,
+    text: #ffffff,
+    light: #e0e0e0,
+    dark: #000000,
+    flame: #ff6b6b
+);
+
+$spirit-shadows: (
+    text: 0 2px 4px rgba(0, 0, 0, 0.5),
+    card: 0 4px 8px rgba(0, 0, 0, 0.3),
+    hover: 0 8px 16px rgba(0, 0, 0, 0.4)
+);
+
+// Spirit page specific styles
+.spirit-page {
+    background: map-get($spirit-colors, primary);
+    color: map-get($spirit-colors, text);
+}
+
+// Hero section
+.spirit-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, map-get($spirit-colors, primary), map-get($spirit-colors, secondary));
+    overflow: hidden;
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: 6rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: map-get($spirit-colors, text);
+        text-shadow: map-get($spirit-shadows, text);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    &__subtitle {
+        font-size: 2.5rem;
+        color: map-get($spirit-colors, accent);
+        text-shadow: map-get($spirit-shadows, text);
+        animation: fadeIn 2s ease-out;
+    }
+
+    &__flames {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.flame {
+    width: 60px;
+    height: 100px;
+    background: map-get($spirit-colors, flame);
+    border-radius: 50% 50% 20% 20%;
+    position: relative;
+    animation: flicker 3s ease-in-out infinite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: map-get($spirit-colors, flame);
+        border-radius: 50%;
+        filter: blur(10px);
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 1s;
+    }
+}
+
+// Nature section
+.spirit-nature {
+    padding: 100px 0;
+    background: map-get($spirit-colors, secondary);
+}
+
+.nature-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: map-get($spirit-colors, accent);
+    }
+}
+
+.nature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.nature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: map-get($spirit-shadows, card);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($spirit-shadows, hover);
+    }
+
+    .nature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+        }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, light);
+        line-height: 1.6;
+    }
+}
+
+// Gifts section
+.spirit-gifts {
+    padding: 100px 0;
+    background: map-get($spirit-colors, primary);
+    overflow: hidden;
+}
+
+.gifts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: map-get($spirit-colors, accent);
+    }
+}
+
+.gifts-wheel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    perspective: 1000px;
+}
+
+.gift-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: map-get($spirit-shadows, card);
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+
+    &:hover {
+        transform: rotateY(10deg) translateZ(20px);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, light);
+        line-height: 1.6;
+    }
+}
+
+// Fruit section
+.spirit-fruit {
+    padding: 100px 0;
+    background: map-get($spirit-colors, secondary);
+}
+
+.fruit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: map-get($spirit-colors, accent);
+    }
+}
+
+.fruit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.fruit-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: map-get($spirit-shadows, card);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(74, 144, 226, 0.1);
+        transform: scale(1.05);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, light);
+        line-height: 1.6;
+    }
+}
+
+// Ministry section
+.spirit-ministry {
+    padding: 100px 0;
+    background: map-get($spirit-colors, primary);
+}
+
+.ministry-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: map-get($spirit-colors, accent);
+    }
+}
+
+.ministry-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: map-get($spirit-colors, accent);
+        transform: translateX(-50%);
+    }
+}
+
+.ministry-event {
+    position: relative;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 0 40px;
+
+    &:nth-child(odd) {
+        left: 0;
+    }
+
+    &:nth-child(even) {
+        left: 50%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: map-get($spirit-colors, accent);
+        border-radius: 50%;
+        right: -10px;
+    }
+
+    &:nth-child(even)::before {
+        left: -10px;
+    }
+}
+
+.event-title {
+    display: block;
+    font-size: 1.5rem;
+    color: map-get($spirit-colors, accent);
+    margin-bottom: 10px;
+}
+
+// Animations
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(74, 144, 226, 0.8),
+                     0 0 30px rgba(74, 144, 226, 0.6);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(0.8);
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .spirit-hero {
+        &__title {
+            font-size: 4rem;
+        }
+        &__subtitle {
+            font-size: 2rem;
+        }
+    }
+
+    .nature-grid,
+    .gifts-wheel {
+        grid-template-columns: 1fr;
+    }
+
+    .fruit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ministry-timeline {
+        &::before {
+            left: 20px;
+        }
+    }
+
+    .ministry-event {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+
+        &::before {
+            left: 10px !important;
+        }
+    }
+} 
