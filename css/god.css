@@ -63,7 +63,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: url(img/god_heavans.jpg) center/cover no-repeat;
+  background: url(/img/god_heavans.jpg) center/cover no-repeat;
 }
 .god-hero::before {
   content: "";
