@@ -7,7 +7,7 @@
   padding: 20px 0;
 }
 .god_nav.scrolled {
-  background: #2c3e50;
+  background: #0A1F3A;
 }
 .god_nav__container {
   max-width: 1200px;
@@ -51,7 +51,7 @@
 }
 
 .god-page {
-  background: linear-gradient(135deg, #2c3e50, #34495e);
+  background: linear-gradient(135deg, #0A1F3A, #0d2c54);
   color: #ecf0f1;
 }
 
@@ -99,7 +99,7 @@
 
 .god-attributes {
   padding: 100px 0;
-  background: #34495e;
+  background: #0d2c54;
 }
 .god-attributes__container {
   max-width: 1200px;
@@ -149,12 +149,14 @@
   width: 100%;
   max-width: 500px;
   height: auto;
+  margin-left: 50px;
+  border-radius: 10px;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 .god-creation {
   padding: 100px 0;
-  background: #2c3e50;
+  background: #0A1F3A;
 }
 
 .creation-timeline {
@@ -216,7 +218,7 @@
 
 .god-relationship {
   padding: 100px 0;
-  background: #34495e;
+  background: #0d2c54;
 }
 
 .relationship-content {
@@ -256,6 +258,10 @@
 }
 .relationship-card p {
   color: #95a5a6;
+}
+
+.footer__link:hover {
+  color: #ffd700;
 }
 
 @keyframes fadeInDown {
