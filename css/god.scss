@@ -1,7 +1,7 @@
 $god-colors: (
     primary: #0A1F3A,
-    secondary: #0d2c54,
-    accent: #ffd700,
+    secondary: #8C6D51,
+    accent: #E5CF8C,
     text: #ecf0f1,
     light: #95a5a6,
     dark: #2c3e50
@@ -189,7 +189,7 @@ $shadows: (
 }
 
 .attribute-description {
-    color: map-get($god-colors, light);
+    color: map-get($god-colors, text);
     line-height: 1.6;
 }
 
@@ -317,7 +317,7 @@ $shadows: (
     }
 
     p {
-        color: map-get($god-colors, light);
+        color: map-get($god-colors, text);
     }
 }
 

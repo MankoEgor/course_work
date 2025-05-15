@@ -34,12 +34,83 @@ $jesus-shadows: (
     hover: 0 8px 16px rgba(0, 0, 0, 0.4)
 );
 
+$transitions: (
+    default: all 0.3s ease
+);
+
+$shadows: (
+    default: 0 2px 10px rgba(0, 0, 0, 0.1)
+);
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 // Jesus page specific styles
 .jesus-page {
     background: map-get($jesus-colors, primary);
     color: map-get($jesus-colors, text);
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+.jesus_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: map-get($jesus-shadows, default);
+    z-index: 1000;
+    padding: 20px 0;
+
+    &.scrolled{
+        background: map-get($jesus-colors, primary);
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        @include flex-between;
+    }
+
+    &__logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: map-get($jesus-colors, text);
+        text-decoration: none;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    &__link {
+        color: map-get($jesus-colors, text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: map-get($transitions, default);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: map-get($jesus-colors, text);
+            transition: map-get($transitions, default);
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
 }
 
 // Hero section
@@ -51,7 +122,7 @@ $jesus-shadows: (
     justify-content: center;
     text-align: center;
     position: relative;
-    // background: url('jesus-hero-bg.jpg') center/cover no-repeat fixed;
+    background: url('img/jesus_bg.jpeg') center/cover no-repeat fixed;
     
     &::before {
         content: '';

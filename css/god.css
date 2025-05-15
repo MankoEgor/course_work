@@ -51,7 +51,7 @@
 }
 
 .god-page {
-  background: linear-gradient(135deg, #0A1F3A, #0d2c54);
+  background: linear-gradient(135deg, #0A1F3A, #8C6D51);
   color: #ecf0f1;
 }
 
@@ -99,7 +99,7 @@
 
 .god-attributes {
   padding: 100px 0;
-  background: #0d2c54;
+  background: #8C6D51;
 }
 .god-attributes__container {
   max-width: 1200px;
@@ -114,7 +114,7 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 40px;
-  color: #ffd700;
+  color: #E5CF8C;
 }
 
 .attributes-list {
@@ -136,12 +136,12 @@
   display: block;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffd700;
+  color: #E5CF8C;
   margin-bottom: 10px;
 }
 
 .attribute-description {
-  color: #95a5a6;
+  color: #ecf0f1;
   line-height: 1.6;
 }
 
@@ -172,7 +172,7 @@
   left: 50%;
   width: 2px;
   height: 100%;
-  background: #ffd700;
+  background: #E5CF8C;
   transform: translateX(-50%);
 }
 
@@ -194,7 +194,7 @@
   top: 0;
   width: 20px;
   height: 20px;
-  background: #ffd700;
+  background: #E5CF8C;
   border-radius: 50%;
   right: -10px;
 }
@@ -209,7 +209,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .timeline-content h3 {
-  color: #ffd700;
+  color: #E5CF8C;
   margin-bottom: 10px;
 }
 .timeline-content p {
@@ -218,7 +218,7 @@
 
 .god-relationship {
   padding: 100px 0;
-  background: #0d2c54;
+  background: #8C6D51;
 }
 
 .relationship-content {
@@ -231,7 +231,7 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 50px;
-  color: #ffd700;
+  color: #E5CF8C;
 }
 
 .relationship-cards {
@@ -252,16 +252,16 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 .relationship-card h3 {
-  color: #ffd700;
+  color: #E5CF8C;
   margin-bottom: 15px;
   font-size: 1.5rem;
 }
 .relationship-card p {
-  color: #95a5a6;
+  color: #ecf0f1;
 }
 
 .footer__link:hover {
-  color: #ffd700;
+  color: #E5CF8C;
 }
 
 @keyframes fadeInDown {

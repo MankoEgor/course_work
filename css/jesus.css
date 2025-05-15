@@ -22,6 +22,58 @@
   overflow-x: hidden;
 }
 
+.jesus_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+}
+.jesus_nav.scrolled {
+  background: #1a1a1a;
+}
+.jesus_nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jesus_nav__logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+.jesus_nav__list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.jesus_nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.jesus_nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+.jesus_nav__link:hover::after {
+  width: 100%;
+}
+
 .jesus-hero {
   min-height: 100vh;
   display: flex;
@@ -30,6 +82,7 @@
   justify-content: center;
   text-align: center;
   position: relative;
+  background: url("img/jesus_bg.jpeg") center/cover no-repeat fixed;
 }
 .jesus-hero::before {
   content: "";
