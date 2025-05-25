@@ -1,28 +1,9 @@
-
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
-#second {
-    width: 400px;
-    height: 800px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: 
-        fadeIn 0.5s ease-out 3.5s forwards,
-        moveRight 1s ease-in-out 4.5s forwards;
-}
-
 // Jesus page specific variables
 $jesus-colors: (
     primary: #1a1a1a,
     secondary: #2d2d2d,
     accent: #c5a47e,
+    contrast: rgb(214, 58, 36),
     text: #ffffff,
     light: #e0e0e0,
     dark: #000000
@@ -122,7 +103,7 @@ $shadows: (
     justify-content: center;
     text-align: center;
     position: relative;
-    background: url('img/jesus_bg.jpeg') center/cover no-repeat fixed;
+    background: url('/img/jesus_bg.jpeg') center/cover no-repeat fixed;
     
     &::before {
         content: '';
@@ -154,7 +135,7 @@ $shadows: (
 
     &__subtitle {
         font-size: 2.5rem;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
         text-shadow: map-get($jesus-shadows, text);
         animation: fadeIn 2s ease-out 0.5s both;
     }
@@ -229,7 +210,7 @@ $shadows: (
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 40px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 }
 
@@ -244,7 +225,7 @@ $shadows: (
         left: 0;
         width: 2px;
         height: 100%;
-        background: map-get($jesus-colors, accent);
+        background: map-get($jesus-colors, text);
     }
 }
 
@@ -260,15 +241,17 @@ $shadows: (
         left: -6px;
         width: 14px;
         height: 14px;
-        background: map-get($jesus-colors, accent);
+        background: map-get($jesus-colors, contrast);
         border-radius: 50%;
     }
 
-    .event-year {
+    span{
+        // .event-year {
         display: block;
         font-size: 1.2rem;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
         margin-bottom: 10px;
+    // }
     }
 
     h3 {
@@ -281,6 +264,7 @@ $shadows: (
         color: map-get($jesus-colors, light);
         line-height: 1.6;
     }
+
 }
 
 // Teachings section
@@ -293,7 +277,7 @@ $shadows: (
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 }
 
@@ -333,7 +317,7 @@ $shadows: (
     h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 
     p {
@@ -359,15 +343,15 @@ $shadows: (
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 }
 
 .miracles-slider {
     display: flex;
-    gap: 30px;
+    gap: 120px;
     overflow-x: auto;
-    padding: 20px 0;
+    padding: 50px 0;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
@@ -429,7 +413,7 @@ $shadows: (
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 }
 
@@ -453,7 +437,7 @@ $shadows: (
     h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 
     p {
@@ -461,6 +445,36 @@ $shadows: (
         line-height: 1.6;
     }
 }
+
+.footer__jesus{
+
+    padding: 50px 0;
+    margin-top: 100px;
+    
+    &__content{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    &__text{
+        margin-bottom: 20px;
+        color: map-get($jesus-colors , text);
+    }
+
+    &__link{
+        color: map-get($jesus-colors, text);
+        text-decoration: none;
+        transition: map-get($transitions, default);
+
+        &:hover {
+            color: map-get($jesus-colors, contrast);
+        }
+    }
+}
+
+
 
 // Animations
 @keyframes bounce {

@@ -26,6 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const nav_j = document.querySelector('.jesus_nav');
+    function checkScroll() {
+        const winScroll = window.scrollY || window.pageYOffset;
+        
+        // Для навигационного меню
+        if (winScroll > 205) {
+            nav_j.classList.add('scrolled');
+        } else {
+            nav_j.classList.remove('scrolled');
+        }
+    }
+
     // Initial check and event listener
     checkScroll();
     window.addEventListener('scroll', checkScroll);
