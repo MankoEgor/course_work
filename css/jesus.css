@@ -94,7 +94,7 @@
 }
 .jesus-hero__subtitle {
   font-size: 2.5rem;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   animation: fadeIn 2s ease-out 0.5s both;
 }
@@ -163,7 +163,7 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 40px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 
 .life-timeline {
@@ -192,13 +192,13 @@
   left: -6px;
   width: 14px;
   height: 14px;
-  background: rgb(214, 58, 36);
+  background: #d63a24;
   border-radius: 50%;
 }
 .timeline-event span {
   display: block;
   font-size: 1.2rem;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
   margin-bottom: 10px;
 }
 .timeline-event h3 {
@@ -220,7 +220,7 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 60px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 
 .teachings-grid {
@@ -243,6 +243,13 @@
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
+.teaching-card p {
+  font-style: italic;
+}
+.teaching-card .script {
+  font-style: normal;
+  font-weight: bold;
+}
 .teaching-card .teaching-icon {
   width: 80px;
   height: 80px;
@@ -257,7 +264,7 @@
 .teaching-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 .teaching-card p {
   color: #e0e0e0;
@@ -280,7 +287,17 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 60px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
+}
+.miracles-container .script {
+  font-weight: bold;
+}
+.miracles-container a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.miracles-container a:hover {
+  color: #d63a24;
 }
 
 .miracles-slider {
@@ -319,7 +336,7 @@
 .miracle-content h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #c5a47e;
+  color: #d63a24;
 }
 .miracle-content p {
   color: #e0e0e0;
@@ -341,7 +358,7 @@
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   margin-bottom: 60px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 
 .promises-list {
@@ -363,16 +380,22 @@
 .promise-item h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 .promise-item p {
   color: #e0e0e0;
   line-height: 1.6;
+  font-style: italic;
+}
+.promise-item .script {
+  font-style: normal;
+  font-weight: bold;
 }
 
 .footer__jesus {
   padding: 50px 0;
   margin-top: 100px;
+  background-color: #2d2d2d;
 }
 .footer__jesus__content {
   max-width: 1200px;
@@ -390,7 +413,7 @@
   transition: all 0.3s ease;
 }
 .footer__jesus__link:hover {
-  color: rgb(214, 58, 36);
+  color: #d63a24;
 }
 
 @keyframes bounce {

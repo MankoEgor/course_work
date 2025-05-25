@@ -13,42 +13,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 
-    // Scroll event handler for nav background
-    const nav = document.querySelector('.god_nav');
-    function checkScroll() {
-        const winScroll = window.scrollY || window.pageYOffset;
+    // Scroll event handler for nav backgrounds
+    function handleNavScroll(navElement, scrollThreshold = 205) {
+        if (!navElement) return;
         
-        // Для навигационного меню
-        if (winScroll > 205) {
-            nav.classList.add('scrolled');
+        const winScroll = window.scrollY || window.pageYOffset;
+        if (winScroll > scrollThreshold) {
+            navElement.classList.add('scrolled');
         } else {
-            nav.classList.remove('scrolled');
+            navElement.classList.remove('scrolled');
         }
     }
 
-    const nav_j = document.querySelector('.jesus_nav');
-    function checkScroll() {
-        const winScroll = window.scrollY || window.pageYOffset;
-        
-        // Для навигационного меню
-        if (winScroll > 205) {
-            nav_j.classList.add('scrolled');
-        } else {
-            nav_j.classList.remove('scrolled');
+    // Initialize nav scroll handlers
+    const navGod = document.querySelector('.god_nav');
+    const navJesus = document.querySelector('.jesus_nav');
+    const backToTop = document.querySelector('.back-to-top');
+
+    // Initial check and event listeners
+    [navGod, navJesus].forEach(nav => {
+        if (nav) {
+            handleNavScroll(nav);
+            window.addEventListener('scroll', () => handleNavScroll(nav));
         }
-    }
+    });
 
-    // Initial check and event listener
-    checkScroll();
-    window.addEventListener('scroll', checkScroll);
-
-    // Back to top click handler (если кнопка существует)
+    // Back to top functionality
     if (backToTop) {
-        backToTop.addEventListener('click', () => {
+        function toggleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
+
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop(); // Initial check
     }
 });

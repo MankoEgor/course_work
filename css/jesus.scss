@@ -3,7 +3,7 @@ $jesus-colors: (
     primary: #1a1a1a,
     secondary: #2d2d2d,
     accent: #c5a47e,
-    contrast: rgb(214, 58, 36),
+    contrast: #d63a24,
     text: #ffffff,
     light: #e0e0e0,
     dark: #000000
@@ -302,6 +302,15 @@ $shadows: (
         box-shadow: map-get($jesus-shadows, hover);
     }
 
+    p{
+        font-style: italic;
+    }
+
+    .script{
+        font-style: normal;
+        font-weight: bold;
+    }
+
     .teaching-icon {
         width: 80px;
         height: 80px;
@@ -344,6 +353,21 @@ $shadows: (
         font-size: 3rem;
         margin-bottom: 60px;
         color: map-get($jesus-colors, contrast);
+    }
+
+    .script{
+        font-weight: bold;
+
+        
+    }
+
+    a{
+        color: map-get($jesus-colors, text);
+        text-decoration: none;
+
+        &:hover{
+            color: map-get($jesus-colors, contrast);
+        }
     }
 }
 
@@ -388,7 +412,7 @@ $shadows: (
     h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: map-get($jesus-colors, accent);
+        color: map-get($jesus-colors, contrast);
     }
 
     p {
@@ -421,6 +445,7 @@ $shadows: (
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+
 }
 
 .promise-item {
@@ -443,6 +468,13 @@ $shadows: (
     p {
         color: map-get($jesus-colors, light);
         line-height: 1.6;
+        font-style: italic;
+
+    }
+
+    .script{
+        font-style: normal;
+        font-weight: bold;
     }
 }
 
@@ -450,6 +482,7 @@ $shadows: (
 
     padding: 50px 0;
     margin-top: 100px;
+    background-color: map-get($jesus-colors, secondary);
     
     &__content{
         max-width: 1200px;
