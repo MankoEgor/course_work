@@ -30,7 +30,9 @@ $spirit-shadows: (
     justify-content: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, map-get($spirit-colors, primary), map-get($spirit-colors, secondary));
+    // background-image: url(/img/holy\ spirit\ bg3-pica.png);
+    // background-position: bottom;
+    // background-repeat: none;
     overflow: hidden;
 
     &__content {
