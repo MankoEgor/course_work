@@ -101,4 +101,77 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Mobile menu functionality
+    const burgerMenu = document.getElementById('burger-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+
+    if (burgerMenu) {
+        burgerMenu.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    }
+
+    // Scroll effects
+    const nav = document.querySelector('.spirit_nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.card, .timeline-event');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight;
+            
+            if (elementPosition < screenPosition) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
 });

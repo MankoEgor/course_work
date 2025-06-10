@@ -38,6 +38,7 @@ body {
   text-decoration: none;
 }
 .nav__list {
+  margin-left: 250px;
   display: flex;
   list-style: none;
   gap: 30px;
