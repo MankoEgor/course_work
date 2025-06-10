@@ -6,6 +6,9 @@
   z-index: 1000;
   padding: 20px 0;
 }
+.god_nav .burger-menu {
+  display: none;
+}
 .god_nav.scrolled {
   background: #0A1F3A;
 }
@@ -378,5 +381,10 @@
   }
   .god_nav .burger-menu .menu ul li a:hover {
     color: #E5CF8C;
+  }
+}
+@media (max-width: 1024px) {
+  .attributes-image {
+    margin-left: 8px;
   }
 }/*# sourceMappingURL=god.css.map */

@@ -37,6 +37,10 @@ $shadows: (
     z-index: 1000;
     padding: 20px 0;
 
+    .burger-menu{
+        display: none;
+    }
+
     &.scrolled{
         background: map-get($god-colors, primary);
     }
@@ -476,3 +480,9 @@ $shadows: (
         }
     }
 } 
+
+@media (max-width: 1024px) {
+    .attributes-image {
+        margin-left: 8px;
+    }
+}

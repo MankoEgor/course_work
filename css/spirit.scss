@@ -24,10 +24,25 @@ $transitions: (
     justify-content: space-between;
 }
 
+// Цветовая палитра для тёплой кремовой темы
+$spirit-bg: #fdf6e3;
+$spirit-text: #3c3c3c;
+$spirit-accent: #fbbf24;
+$spirit-accent2: #fde68a;
+$spirit-card: #fffdf6;
+$spirit-shadow: 0 4px 16px rgba(251, 191, 36, 0.08);
+
 .spirit-page {
-    background: map-get($spirit-colors, primary);
-    color: map-get($spirit-colors, text);
+    background: $spirit-bg;
+    color: $spirit-text;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
 }
 
 .spirit_nav {
@@ -37,8 +52,9 @@ $transitions: (
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
-    background: transparent;
+    background: $spirit-bg;
     transition: map-get($transitions, default);
+    box-shadow: $spirit-shadow;
 
     &.scrolled {
         background: map-get($spirit-colors, primary);
@@ -57,7 +73,7 @@ $transitions: (
         font-family: 'Montserrat', sans-serif;
         font-size: 1.8rem;
         font-weight: 700;
-        color: map-get($spirit-colors, text);
+        color: $spirit-text;
         text-decoration: none;
     }
 
@@ -68,7 +84,7 @@ $transitions: (
     }
 
     &__link {
-        color: map-get($spirit-colors, text);
+        color: $spirit-text;
         text-decoration: none;
         font-weight: 500;
         transition: map-get($transitions, default);
@@ -81,7 +97,7 @@ $transitions: (
             left: 0;
             width: 0;
             height: 2px;
-            background: map-get($spirit-colors, accent);
+            background: $spirit-accent;
             transition: map-get($transitions, default);
         }
 
@@ -97,7 +113,7 @@ $transitions: (
 
 .nature-icon {
     font-size: 2.5rem;
-    color: map-get($spirit-colors, accent);
+    color: $spirit-accent2;
     margin-bottom: 1rem;
 }
 
@@ -110,51 +126,51 @@ $transitions: (
     justify-content: center;
     text-align: center;
     position: relative;
-    // background-image: url(/img/holy\ spirit\ bg3-pica.png);
-    // background-position: bottom;
-    // background-repeat: none;
     overflow: hidden;
+    padding: 80px 0;
+    background: $spirit-bg;
+    color: $spirit-text;
+}
 
-    &__content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 20px;
-    }
+.spirit-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
 
-    &__title {
-        font-family: 'Playfair Display', serif;
-        font-size: 6rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: map-get($spirit-colors, text);
-        text-shadow: map-get($spirit-shadows, text);
-        animation: glow 2s ease-in-out infinite alternate;
-    }
+.spirit-hero__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $spirit-text;
+    text-shadow: map-get($spirit-shadows, text);
+    animation: glow 2s ease-in-out infinite alternate;
+}
 
-    &__subtitle {
-        font-size: 2.5rem;
-        color: map-get($spirit-colors, accent);
-        text-shadow: map-get($spirit-shadows, text);
-        animation: fadeIn 2s ease-out;
-    }
+.spirit-hero__subtitle {
+    font-size: 2.5rem;
+    color: $spirit-accent;
+    text-shadow: map-get($spirit-shadows, text);
+    animation: fadeIn 2s ease-out;
+}
 
-    &__flames {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
+.spirit-hero__flames {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .flame {
     width: 60px;
     height: 100px;
-    background: map-get($spirit-colors, accent);
+    background: $spirit-accent;
     border-radius: 50% 50% 20% 20%;
     position: relative;
     animation: flicker 3s ease-in-out infinite;
@@ -167,7 +183,7 @@ $transitions: (
         transform: translateX(-50%);
         width: 40px;
         height: 40px;
-        background: map-get($spirit-colors, accent);
+        background: $spirit-accent;
         border-radius: 50%;
         filter: blur(10px);
     }
@@ -183,21 +199,23 @@ $transitions: (
 
 // Nature section
 .spirit-nature {
+    width: 100%;
     padding: 100px 0;
-    background: map-get($spirit-colors, secondary);
+    background: $spirit-bg;
 }
 
 .nature-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
     text-align: center;
 
     h2 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
     }
 }
 
@@ -208,11 +226,11 @@ $transitions: (
 }
 
 .nature-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: $spirit-card;
     padding: 40px 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: map-get($spirit-shadows, card);
+    box-shadow: $spirit-shadow;
 
     &:hover {
         transform: translateY(-10px);
@@ -235,33 +253,50 @@ $transitions: (
     h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
     }
 
     p {
-        color: map-get($spirit-colors, light);
+        color: $spirit-text;
         line-height: 1.6;
     }
 }
 
 // Gifts section
 .spirit-gifts {
+    width: 100%;
     padding: 100px 0;
-    background: map-get($spirit-colors, primary);
+    background: $spirit-bg;
+    position: relative;
     overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+        z-index: 1;
+    }
 }
 
 .gifts-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 2;
 
     h2 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -273,46 +308,77 @@ $transitions: (
 }
 
 .gift-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: map-get($spirit-shadows, card);
-    transition: transform 0.3s ease;
+    background: $spirit-card;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: $spirit-shadow;
+    transition: all 0.3s ease;
     transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), transparent);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
 
     &:hover {
-        transform: rotateY(10deg) translateZ(20px);
+        transform: translateY(-10px) rotateY(5deg);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+
+        &::before {
+            opacity: 1;
+        }
+
+        h3 {
+            color: $spirit-accent;
+        }
     }
 
     h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: map-get($spirit-colors, accent);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: $spirit-text;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
     }
 
     p {
-        color: map-get($spirit-colors, light);
+        color: $spirit-text;
         line-height: 1.6;
+        font-size: 1.1rem;
+        position: relative;
+        z-index: 2;
     }
 }
 
 // Fruit section
 .spirit-fruit {
+    width: 100%;
     padding: 100px 0;
-    background: map-get($spirit-colors, secondary);
+    background: $spirit-bg;
 }
 
 .fruit-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
     text-align: center;
 
     h2 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
     }
 }
 
@@ -323,10 +389,10 @@ $transitions: (
 }
 
 .fruit-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: $spirit-card;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: map-get($spirit-shadows, card);
+    border-radius: 12px;
+    box-shadow: $spirit-shadow;
     transition: all 0.3s ease;
 
     &:hover {
@@ -337,32 +403,34 @@ $transitions: (
     h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
     }
 
     p {
-        color: map-get($spirit-colors, light);
+        color: $spirit-text;
         line-height: 1.6;
     }
 }
 
 // Ministry section
 .spirit-ministry {
+    width: 100%;
     padding: 100px 0;
-    background: map-get($spirit-colors, primary);
+    background: $spirit-bg;
 }
 
 .ministry-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
     text-align: center;
 
     h2 {
         font-family: 'Playfair Display', serif;
         font-size: 3rem;
         margin-bottom: 60px;
-        color: map-get($spirit-colors, accent);
+        color: $spirit-accent;
     }
 }
 
@@ -379,7 +447,7 @@ $transitions: (
         left: 50%;
         width: 2px;
         height: 100%;
-        background: map-get($spirit-colors, accent);
+        background: $spirit-accent2;
         transform: translateX(-50%);
     }
 }
@@ -404,7 +472,7 @@ $transitions: (
         top: 0;
         width: 20px;
         height: 20px;
-        background: map-get($spirit-colors, accent);
+        background: $spirit-accent;
         border-radius: 50%;
         right: -10px;
     }
@@ -417,7 +485,7 @@ $transitions: (
 .event-title {
     display: block;
     font-size: 1.5rem;
-    color: map-get($spirit-colors, accent);
+    color: $spirit-accent;
     margin-bottom: 10px;
 }
 
@@ -453,42 +521,55 @@ $transitions: (
 }
 
 // Responsive
-@media (max-width: 768px) {
-    .spirit-hero {
-        &__title {
-            font-size: 4rem;
-        }
-        &__subtitle {
-            font-size: 2rem;
-        }
+@media (max-width: 1200px) {
+    .spirit_nav__container,
+    .nature-container,
+    .gifts-container,
+    .fruit-container,
+    .ministry-container {
+        max-width: 960px;
+    }
+
+    .spirit-hero__title {
+        font-size: 5rem;
+    }
+
+    .spirit-hero__subtitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .spirit_nav__container,
+    .nature-container,
+    .gifts-container,
+    .fruit-container,
+    .ministry-container {
+        max-width: 720px;
+    }
+
+    .spirit-hero__title {
+        font-size: 4rem;
+    }
+
+    .spirit-hero__subtitle {
+        font-size: 1.8rem;
     }
 
     .nature-grid,
     .gifts-wheel {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .fruit-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .ministry-timeline {
-        &::before {
-            left: 20px;
-        }
-    }
-
-    .ministry-event {
-        width: 100%;
-        left: 0 !important;
-        padding-left: 50px;
-
-        &::before {
-            left: 10px !important;
-        }
-    }
-
+@media (max-width: 768px) {
     .spirit_nav {
+        padding: 15px 0;
+
         .spirit_nav__list {
             display: none;
         }
@@ -510,7 +591,7 @@ $transitions: (
                 span {
                     width: 100%;
                     height: 2px;
-                    background: #ffffff;
+                    background: $spirit-text;
                     transition: all 0.3s ease;
                 }
 
@@ -536,7 +617,7 @@ $transitions: (
                 width: 80%;
                 max-width: 300px;
                 height: 100vh;
-                background: #2c3e50;
+                background: $spirit-bg;
                 padding: 80px 20px 20px;
                 transition: all 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
@@ -555,7 +636,7 @@ $transitions: (
                         margin-bottom: 20px;
 
                         a {
-                            color: #ffffff;
+                            color: $spirit-text;
                             text-decoration: none;
                             font-size: 1.2rem;
                             display: block;
@@ -563,7 +644,7 @@ $transitions: (
                             transition: all 0.3s ease;
 
                             &:hover {
-                                color: #3498db;
+                                color: $spirit-accent;
                             }
                         }
                     }
@@ -571,4 +652,128 @@ $transitions: (
             }
         }
     }
+
+    .spirit-hero {
+        min-height: 300px;
+        padding: 40px 0 20px 0;
+    }
+
+    .spirit-hero__title {
+        font-size: 3rem;
+    }
+
+    .spirit-hero__subtitle {
+        font-size: 1.5rem;
+    }
+
+    .nature-grid,
+    .gifts-wheel,
+    .fruit-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .nature-card,
+    .gift-item,
+    .fruit-item {
+        padding: 30px 20px;
+    }
+
+    .ministry-timeline {
+        display: block;
+        padding-left: 24px;
+        position: relative;
+    }
+    .ministry-timeline::before {
+        left: 8px;
+        width: 2px;
+    }
+    .ministry-event {
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+        padding-left: 24px;
+        position: relative;
+    }
+    .ministry-event::before {
+        left: -16px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .spirit_nav__container,
+    .nature-container,
+    .gifts-container,
+    .fruit-container,
+    .ministry-container {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .spirit-hero__title {
+        font-size: 2.5rem;
+    }
+
+    .spirit-hero__subtitle {
+        font-size: 1.2rem;
+    }
+
+    .nature-container h2,
+    .gifts-container h2,
+    .fruit-container h2,
+    .ministry-container h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .nature-card h3,
+    .gift-item h3,
+    .fruit-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .nature-card p,
+    .gift-item p,
+    .fruit-item p {
+        font-size: 1rem;
+    }
+
+    .spirit-hero__flames {
+        height: 150px;
+    }
+
+    .flame {
+        width: 40px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 360px) {
+    .spirit-hero__title {
+        font-size: 2rem;
+    }
+
+    .spirit-hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .nature-container h2,
+    .gifts-container h2,
+    .fruit-container h2,
+    .ministry-container h2 {
+        font-size: 1.8rem;
+    }
+}
+
+.back-to-top {
+    background: $spirit-accent;
+    color: $spirit-text;
+}
+
+.footer {
+    background: $spirit-accent2;
+    color: $spirit-text;
 } 

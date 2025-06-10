@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Святой Дух - Христианский сайт</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Святой Дух</title>
     <link rel="stylesheet" href="css/spirit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="spirit-page">
     <nav class="spirit_nav">
@@ -19,9 +15,9 @@
                 <li><a href="index.html" class="spirit_nav__link">Главная</a></li>
                 <li><a href="god.html" class="spirit_nav__link">Бог Отец</a></li>
                 <li><a href="jesus.html" class="spirit_nav__link">Иисус Христос</a></li>
-                <li><a href="spirit.html" class="spirit_nav__link">Святой Дух</a></li>
+                <li><a href="spirit.html" class="spirit_nav__link active">Святой Дух</a></li>
             </ul>
-            <div class="burger-menu">
+            <div class="burger-menu" id="burger-menu">
                 <div class="burger-icon" id="burger">
                     <span></span>
                     <span></span>
@@ -32,7 +28,7 @@
                         <li><a href="index.html">Главная</a></li>
                         <li><a href="god.html">Бог Отец</a></li>
                         <li><a href="jesus.html">Иисус Христос</a></li>
-                        <li><a href="spirit.html">Святой Дух</a></li>
+                        <li><a href="spirit.html" class="active">Святой Дух</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,34 +37,26 @@
 
     <main>
         <section class="spirit-hero">
-            <div class="spirit-hero__content">
-                <h1 class="spirit-hero__title">Святой Дух</h1>
-                <p class="spirit-hero__subtitle">Утешитель и Наставник</p>
-            </div>
+            <h1 class="spirit-hero__title">Святой Дух</h1>
+            <p class="spirit-hero__subtitle">Утешитель и Наставник</p>
         </section>
 
         <section class="spirit-nature">
-            <div class="nature-container">
+            <div class="container">
                 <h2>Природа Святого Духа</h2>
-                <div class="nature-grid">
-                    <div class="nature-card">
-                        <div class="nature-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
+                <div class="card-list">
+                    <div class="card">
+                        <i class="fas fa-dove nature-icon"></i>
                         <h3>Символы</h3>
-                        <p>Голубь, огонь, ветер - символы Святого Духа в Писании</p>
+                        <p>Голубь, огонь, ветер — символы Святого Духа в Писании</p>
                     </div>
-                    <div class="nature-card">
-                        <div class="nature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
+                    <div class="card">
+                        <i class="fas fa-bolt nature-icon"></i>
                         <h3>Сила</h3>
                         <p>Источник силы и мудрости для верующих</p>
                     </div>
-                    <div class="nature-card">
-                        <div class="nature-icon">
-                            <i class="fas fa-compass"></i>
-                        </div>
+                    <div class="card">
+                        <i class="fas fa-compass nature-icon"></i>
                         <h3>Наставник</h3>
                         <p>Ведет к истине и прославляет Христа</p>
                     </div>
@@ -77,108 +65,31 @@
         </section>
 
         <section class="spirit-gifts">
-            <div class="gifts-container">
+            <div class="container">
                 <h2>Дары Святого Духа</h2>
-                <div class="gifts-wheel">
-                    <div class="gift-item">
-                        <h3>Мудрость</h3>
-                        <p>Дар понимания Божьей воли</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Знание</h3>
-                        <p>Понимание Божьих истин</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Вера</h3>
-                        <p>Особая вера в Божьи обетования</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Исцеление</h3>
-                        <p>Дар исцеления больных</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Чудотворение</h3>
-                        <p>Совершение чудес</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Пророчество</h3>
-                        <p>Передача Божьих посланий</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Различение духов</h3>
-                        <p>Распознавание духовных влияний</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Говорение на языках</h3>
-                        <p>Дар молитвы на незнакомых языках</p>
-                    </div>
-                    <div class="gift-item">
-                        <h3>Толкование языков</h3>
-                        <p>Понимание и истолкование языков</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="spirit-fruit">
-            <div class="fruit-container">
-                <h2>Плод Духа</h2>
-                <div class="fruit-grid">
-                    <div class="fruit-item">
-                        <h3>Любовь</h3>
-                        <p>Божественная любовь к Богу и ближним</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Радость</h3>
-                        <p>Внутренняя радость во Христе</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Мир</h3>
-                        <p>Душевный покой в Боге</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Долготерпение</h3>
-                        <p>Терпение в испытаниях</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Благость</h3>
-                        <p>Доброта и милосердие</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Вера</h3>
-                        <p>Верность Богу и Его слову</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Кротость</h3>
-                        <p>Смирение и мягкость</p>
-                    </div>
-                    <div class="fruit-item">
-                        <h3>Воздержание</h3>
-                        <p>Самоконтроль и умеренность</p>
-                    </div>
+                <div class="card-list">
+                    <div class="card"><h3>Мудрость</h3><p>Понимание Божьей воли</p></div>
+                    <div class="card"><h3>Вера</h3><p>Особая вера в Божьи обетования</p></div>
+                    <div class="card"><h3>Исцеление</h3><p>Дар исцеления больных</p></div>
                 </div>
             </div>
         </section>
 
         <section class="spirit-ministry">
-            <div class="ministry-container">
+            <div class="container">
                 <h2>Служение Святого Духа</h2>
-                <div class="ministry-timeline">
-                    <div class="ministry-event">
+                <div class="timeline">
+                    <div class="timeline-event">
                         <span class="event-title">Пятидесятница</span>
                         <p>Сошествие Святого Духа на апостолов</p>
                     </div>
-                    <div class="ministry-event">
+                    <div class="timeline-event">
                         <span class="event-title">Освящение</span>
                         <p>Преображение жизни верующих</p>
                     </div>
-                    <div class="ministry-event">
+                    <div class="timeline-event">
                         <span class="event-title">Наставничество</span>
                         <p>Ведение к истине и праведности</p>
-                    </div>
-                    <div class="ministry-event">
-                        <span class="event-title">Молитва</span>
-                        <p>Ходатайство за верующих</p>
                     </div>
                 </div>
             </div>
@@ -188,12 +99,8 @@
     <footer class="footer">
         <div class="footer__content">
             <p class="footer__text">© 2024 Христианский сайт. Все права защищены.</p>
-            <a href="#" class="footer__link">Политика конфиденциальности</a>
         </div>
     </footer>
-
-    <button class="back-to-top" aria-label="Наверх">↑</button>
-    
     <script src="script.js"></script>
 </body>
 </html> 
