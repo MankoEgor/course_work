@@ -58,12 +58,37 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBackToTop(); // Initial check
     }
 
-    
+    // Burger menu functionality
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
+    const body = document.body;
 
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        menu.classList.toggle('active');
-    });
+    if (burger && menu) {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            menu.classList.toggle('active');
+            body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (menu.classList.contains('active') && 
+                !menu.contains(e.target) && 
+                !burger.contains(e.target)) {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on a link
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+    }
 });

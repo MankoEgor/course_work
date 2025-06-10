@@ -1,24 +1,104 @@
 // Spirit page specific variables
 $spirit-colors: (
-    primary: #1a1a1a,
-    secondary: #2d2d2d,
-    accent: #4a90e2,
+    primary: #2c3e50,
+    secondary: #34495e,
+    accent: #3498db,
     text: #ffffff,
-    light: #e0e0e0,
-    dark: #000000,
-    flame: #ff6b6b
+    light: #ecf0f1,
+    dark: #2c3e50
 );
 
 $spirit-shadows: (
-    text: 0 2px 4px rgba(0, 0, 0, 0.5),
-    card: 0 4px 8px rgba(0, 0, 0, 0.3),
-    hover: 0 8px 16px rgba(0, 0, 0, 0.4)
+    text: 0 2px 4px rgba(0, 0, 0, 0.3),
+    card: 0 4px 6px rgba(0, 0, 0, 0.2),
+    hover: 0 6px 12px rgba(0, 0, 0, 0.3)
 );
 
-// Spirit page specific styles
+$transitions: (
+    default: all 0.3s ease
+);
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .spirit-page {
     background: map-get($spirit-colors, primary);
     color: map-get($spirit-colors, text);
+    min-height: 100vh;
+}
+
+.spirit_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background: transparent;
+    transition: map-get($transitions, default);
+
+    &.scrolled {
+        background: map-get($spirit-colors, primary);
+        box-shadow: map-get($spirit-shadows, card);
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        @include flex-between;
+        position: relative;
+    }
+
+    &__logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: map-get($spirit-colors, text);
+        text-decoration: none;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    &__link {
+        color: map-get($spirit-colors, text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: map-get($transitions, default);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: map-get($spirit-colors, accent);
+            transition: map-get($transitions, default);
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+.nature-icon {
+    font-size: 2.5rem;
+    color: map-get($spirit-colors, accent);
+    margin-bottom: 1rem;
 }
 
 // Hero section
@@ -74,7 +154,7 @@ $spirit-shadows: (
 .flame {
     width: 60px;
     height: 100px;
-    background: map-get($spirit-colors, flame);
+    background: map-get($spirit-colors, accent);
     border-radius: 50% 50% 20% 20%;
     position: relative;
     animation: flicker 3s ease-in-out infinite;
@@ -87,7 +167,7 @@ $spirit-shadows: (
         transform: translateX(-50%);
         width: 40px;
         height: 40px;
-        background: map-get($spirit-colors, flame);
+        background: map-get($spirit-colors, accent);
         border-radius: 50%;
         filter: blur(10px);
     }
@@ -405,6 +485,90 @@ $spirit-shadows: (
 
         &::before {
             left: 10px !important;
+        }
+    }
+
+    .spirit_nav {
+        .spirit_nav__list {
+            display: none;
+        }
+
+        .burger-menu {
+            display: block;
+            position: relative;
+            z-index: 1001;
+
+            .burger-icon {
+                width: 30px;
+                height: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                padding: 5px;
+
+                span {
+                    width: 100%;
+                    height: 2px;
+                    background: #ffffff;
+                    transition: all 0.3s ease;
+                }
+
+                &.active {
+                    span:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, 5px);
+                    }
+
+                    span:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    span:nth-child(3) {
+                        transform: rotate(-45deg) translate(5px, -5px);
+                    }
+                }
+            }
+
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: #2c3e50;
+                padding: 80px 20px 20px;
+                transition: all 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+
+                &.active {
+                    right: 0;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        margin-bottom: 20px;
+
+                        a {
+                            color: #ffffff;
+                            text-decoration: none;
+                            font-size: 1.2rem;
+                            display: block;
+                            padding: 10px 0;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                color: #3498db;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 } 

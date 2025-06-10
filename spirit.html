@@ -7,19 +7,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/spirit.css">
 </head>
 <body class="spirit-page">
-    <nav class="nav">
-        <div class="nav__container">
-            <a href="index.html" class="nav__logo">Христианство</a>
-            <ul class="nav__list">
-                <li><a href="index.html" class="nav__link">Главная</a></li>
-                <li><a href="god.html" class="nav__link">Бог Отец</a></li>
-                <li><a href="jesus.html" class="nav__link">Иисус Христос</a></li>
-                <li><a href="spirit.html" class="nav__link">Святой Дух</a></li>
+    <nav class="spirit_nav">
+        <div class="spirit_nav__container">
+            <a href="index.html" class="spirit_nav__logo">Христианство</a>
+            <ul class="spirit_nav__list">
+                <li><a href="index.html" class="spirit_nav__link">Главная</a></li>
+                <li><a href="god.html" class="spirit_nav__link">Бог Отец</a></li>
+                <li><a href="jesus.html" class="spirit_nav__link">Иисус Христос</a></li>
+                <li><a href="spirit.html" class="spirit_nav__link">Святой Дух</a></li>
             </ul>
+            <div class="burger-menu">
+                <div class="burger-icon" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu" id="menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="god.html">Бог Отец</a></li>
+                        <li><a href="jesus.html">Иисус Христос</a></li>
+                        <li><a href="spirit.html">Святой Дух</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -37,21 +53,21 @@
                 <div class="nature-grid">
                     <div class="nature-card">
                         <div class="nature-icon">
-                            <img src="dove-icon.svg" alt="Голубь">
+                            <i class="fas fa-dove"></i>
                         </div>
                         <h3>Символы</h3>
                         <p>Голубь, огонь, ветер - символы Святого Духа в Писании</p>
                     </div>
                     <div class="nature-card">
                         <div class="nature-icon">
-                            <img src="power-icon.svg" alt="Сила">
+                            <i class="fas fa-bolt"></i>
                         </div>
                         <h3>Сила</h3>
                         <p>Источник силы и мудрости для верующих</p>
                     </div>
                     <div class="nature-card">
                         <div class="nature-icon">
-                            <img src="guide-icon.svg" alt="Наставник">
+                            <i class="fas fa-compass"></i>
                         </div>
                         <h3>Наставник</h3>
                         <p>Ведет к истине и прославляет Христа</p>
@@ -177,5 +193,7 @@
     </footer>
 
     <button class="back-to-top" aria-label="Наверх">↑</button>
+    
+    <script src="script.js"></script>
 </body>
 </html> 
