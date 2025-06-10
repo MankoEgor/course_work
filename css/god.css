@@ -294,6 +294,9 @@
   .god-attributes__container {
     grid-template-columns: 1fr;
   }
+  .attributes-image {
+    display: none;
+  }
   .creation-timeline::before {
     left: 20px;
   }

@@ -265,6 +265,11 @@ body {
   .hero__title {
     font-size: 3rem;
   }
+  .hero .btn {
+    margin: 3px;
+    padding: 10px 20px;
+    width: 250px;
+  }
   .section__title {
     font-size: 2rem;
   }

@@ -319,11 +319,16 @@ body {
     transform: translateY(-3px);
 }
 
-// Responsive
 @include responsive(mobile) {
     .hero {
         &__title {
             font-size: 3rem;
+        }
+
+        .btn{
+            margin: 3px;
+            padding: 10px 20px;
+            width: 250px;
         }
     }
 
@@ -354,4 +359,4 @@ body {
             height: 50px;
         }
     }
-} 
+}

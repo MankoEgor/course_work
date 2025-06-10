@@ -367,6 +367,10 @@ $shadows: (
         }
     }
 
+    .attributes-image{
+        display: none;
+    }
+
     .creation-timeline {
         &::before {
             left: 20px;

@@ -25,12 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize nav scroll handlers
     const navGod = document.querySelector('.god_nav');
     const navJesus = document.querySelector('.jesus_nav');
     const backToTop = document.querySelector('.back-to-top');
 
-    // Initial check and event listeners
     [navGod, navJesus].forEach(nav => {
         if (nav) {
             handleNavScroll(nav);
@@ -59,4 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', toggleBackToTop);
         toggleBackToTop(); // Initial check
     }
+
+    
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
 });
