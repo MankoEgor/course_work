@@ -61,24 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Burger menu functionality
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
+    const overlay = document.getElementById('menu-overlay');
     const body = document.body;
 
-    if (burger && menu) {
+    if (burger && menu && overlay) {
         burger.addEventListener('click', () => {
             burger.classList.toggle('active');
             menu.classList.toggle('active');
+            overlay.classList.toggle('active');
             body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (menu.classList.contains('active') && 
-                !menu.contains(e.target) && 
-                !burger.contains(e.target)) {
-                burger.classList.remove('active');
-                menu.classList.remove('active');
-                body.style.overflow = '';
-            }
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            burger.classList.remove('active');
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            body.style.overflow = '';
         });
 
         // Close menu when clicking on a link
@@ -87,8 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 burger.classList.remove('active');
                 menu.classList.remove('active');
+                overlay.classList.remove('active');
                 body.style.overflow = '';
             });
+        });
+
+        // Close menu on window resize if open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && menu.classList.contains('active')) {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.style.overflow = '';
+            }
         });
     }
 });
