@@ -1,0 +1,111 @@
+/* Стили для страницы Духа Святого */
+.holy-spirit-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.holy-spirit-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.holy-spirit-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.holy-spirit-header p {
+    font-size: 1.2rem;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.holy-spirit-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.holy-spirit-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.holy-spirit-section:hover {
+    transform: translateY(-5px);
+}
+
+.holy-spirit-section h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.holy-spirit-section p {
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.holy-spirit-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.holy-spirit-section ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.holy-spirit-section ul li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.holy-spirit-section .icon {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.holy-spirit-section .scripture {
+    font-style: italic;
+    color: #7f8c8d;
+    border-left: 3px solid #3498db;
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .holy-spirit-content {
+        padding: 1rem;
+    }
+
+    .holy-spirit-header {
+        padding: 1.5rem;
+    }
+
+    .holy-spirit-header h1 {
+        font-size: 2rem;
+    }
+
+    .holy-spirit-sections {
+        grid-template-columns: 1fr;
+    }
+} 
