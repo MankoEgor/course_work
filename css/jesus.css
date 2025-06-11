@@ -364,7 +364,7 @@ body {
 
 .miracles-slider {
   display: flex;
-  gap: 30px;
+  gap: 60px;
   overflow-x: auto;
   padding: 50px 0;
   scroll-snap-type: x mandatory;
@@ -617,6 +617,14 @@ body {
 }
 @media (max-width: 1184px) {
   .miracles-slider {
+    gap: 9%;
+  }
+}
+@media (max-width: 1440px) {
+  .miracles-slider {
     gap: 8%;
+  }
+  .miracles-slider .miracle-slide {
+    margin: 10px;
   }
 }/*# sourceMappingURL=jesus.css.map */

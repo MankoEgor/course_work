@@ -437,7 +437,7 @@ body {
 
 .miracles-slider {
   display: flex;
-  gap: 30px;
+  gap: 60px;
   overflow-x: auto;
   padding: 50px 0;
   scroll-snap-type: x mandatory;
@@ -701,9 +701,6 @@ body {
     }
 }
 
-
-
-
 @media (max-width: 480px) {
   .jesus-hero {
     &__title {
@@ -743,8 +740,18 @@ body {
     }
 }
 
-@media(max-width: 1184px) {
+@media (max-width: 1184px) {
+    .miracles-slider{
+        gap: 9%;
+    }
+}
+
+@media (max-width: 1440px){
     .miracles-slider{
         gap: 8%;
+        
+        .miracle-slide{
+          margin: 10px;
+        }
     }
 }

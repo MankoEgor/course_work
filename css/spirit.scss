@@ -1,11 +1,21 @@
 // Переменные
 $spirit-colors: (
-    primary: #2C1B47,    // Глубокий фиолетовый
-    secondary: #8B5CF6,  // Яркий фиолетовый
-    accent: #FCD34D,     // Теплое золото
-    text: #F3F4F6,      // Светлый серый
-    light: #A5B4FC,     // Светлый фиолетовый
-    dark: #1E1B4B       // Темный фиолетовый
+    primary: #FFF8E7,    
+    secondary: #D4A373,  
+    accent: #645d3b,    
+    text: #3E2C41,     
+    light: #FFFFFF,     
+    dark: #24221e,
+    gold: #868365,
+    amber: #FFBF00,
+    honey: #FFB300,
+    caramel: #C68E17,
+    sand: #E6BE8A,
+    cream: #FFFDD0,
+    pearl: #F5F5F5,
+    ivory: #FFFFF0,
+    sepia: #704214,
+    bronze: #CD7F32
 );
 
 $spirit-shadows: (
@@ -62,7 +72,6 @@ $border-radius: 10px;
 
 // Основные стили
 .spirit-page {
-    background: linear-gradient(135deg, map-get($spirit-colors, primary), map-get($spirit-colors, secondary));
     color: map-get($spirit-colors, text);
     min-height: 100vh;
 }
@@ -78,7 +87,7 @@ $border-radius: 10px;
     transition: background 0.3s ease;
 
     &.scrolled {
-        background: map-get($spirit-colors, primary);
+        background: map-get($spirit-colors, secondary);
     }
 
     &__container {
@@ -90,7 +99,7 @@ $border-radius: 10px;
         font-family: 'Montserrat', sans-serif;
         font-size: 1.8rem;
         font-weight: 700;
-        color: map-get($spirit-colors, text);
+        color: map-get($spirit-colors, light);
         text-decoration: none;
     }
 
@@ -101,14 +110,14 @@ $border-radius: 10px;
     }
 
     &__link {
-        color: map-get($spirit-colors, text);
+        color: map-get($spirit-colors, light);
         text-decoration: none;
         font-weight: 500;
         transition: map-get($transitions, default);
         position: relative;
 
         &:hover {
-            color: map-get($spirit-colors, accent);
+            color: map-get($spirit-colors, light);
 
             &::after {
                 width: 100%;
@@ -135,8 +144,7 @@ $border-radius: 10px;
     flex-direction: column;
     text-align: center;
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
-                url("/img/spirit_bg.jpg") center/cover no-repeat;
+    background: url("/img/holy_spirit_bg.png") center/cover no-repeat;
 
     &__content {
         position: relative;
@@ -150,14 +158,14 @@ $border-radius: 10px;
         font-size: 6rem;
         font-weight: 700;
         margin-bottom: 20px;
-        color: map-get($spirit-colors, text);
+        color: map-get($spirit-colors, light);
         text-shadow: map-get($spirit-shadows, text);
         animation: fadeIn 2s ease-out;
     }
 
     &__subtitle {
         font-size: 2.5rem;
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, secondary);
         text-shadow: map-get($spirit-shadows, text);
         animation: fadeIn 2s ease-out 0.5s both;
     }
@@ -166,7 +174,10 @@ $border-radius: 10px;
 // Секция ролей
 .spirit-roles {
     padding: $padding-section;
-    background: map-get($spirit-colors, primary);
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, primary) 0%,
+        map-get($spirit-colors, cream) 100%
+    );
 }
 
 .roles-container {
@@ -191,12 +202,20 @@ $border-radius: 10px;
     border-radius: $border-radius;
     @include card-shadow;
     text-align: center;
+    border: 1px solid map-get($spirit-colors, cream);
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($spirit-shadows, hover);
+        border-color: map-get($spirit-colors, gold);
+    }
 
     .role-icon {
         margin: 0 auto 20px;
         width: 80px;
         height: 80px;
         @include flex-center;
+        color: map-get($spirit-colors, gold);
 
         img {
             width: 100%;
@@ -218,14 +237,17 @@ $border-radius: 10px;
     .script {
         font-style: normal;
         font-weight: bold;
-        color: map-get($spirit-colors, light);
+        color: map-get($spirit-colors, dark);
     }
 }
 
 // Секция плодов
 .spirit-fruits {
     padding: $padding-section;
-    background: map-get($spirit-colors, secondary);
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, secondary) 0%,
+        map-get($spirit-colors, sand) 100%
+    );
 }
 
 .fruits-container {
@@ -248,6 +270,13 @@ $border-radius: 10px;
     padding: 40px 30px;
     border-radius: $border-radius;
     @include card-shadow;
+    border: 1px solid map-get($spirit-colors, sand);
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($spirit-shadows, hover);
+        border-color: map-get($spirit-colors, honey);
+    }
 
     h3 {
         font-size: 1.5rem;
@@ -270,9 +299,9 @@ $border-radius: 10px;
 // Секция даров
 .spirit-gifts {
     padding: $padding-section;
-    background: linear-gradient(135deg, 
-        map-get($spirit-colors, primary),
-        darken(map-get($spirit-colors, primary), 10%)
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, primary) 0%,
+        map-get($spirit-colors, cream) 100%
     );
     position: relative;
     overflow: hidden;
@@ -315,6 +344,7 @@ $border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    border: 1px solid map-get($spirit-colors, pearl);
 
     &::before {
         content: '';
@@ -324,17 +354,19 @@ $border-radius: 10px;
         right: 0;
         height: 3px;
         background: linear-gradient(90deg, 
-            map-get($spirit-colors, accent),
-            map-get($spirit-colors, secondary)
+            map-get($spirit-colors, gold),
+            map-get($spirit-colors, amber)
         );
         transform: scaleX(0);
         transition: transform 0.3s ease;
         transform-origin: left;
     }
-
+    
     &:hover {
         transform: translateY(-10px);
         box-shadow: map-get($spirit-shadows, hover);
+        border-color: map-get($spirit-colors, gold);
+        background: map-get($spirit-colors, secondary);
 
         &::before {
             transform: scaleX(1);
@@ -345,6 +377,12 @@ $border-radius: 10px;
             
             &::after {
                 opacity: 1;
+            }
+        }
+
+        .gift-content{
+            .script{
+                color: map-get($spirit-colors, primary);
             }
         }
     }
@@ -364,11 +402,6 @@ $border-radius: 10px;
         left: -10px;
         right: -10px;
         bottom: -10px;
-        background: radial-gradient(
-            circle,
-            rgba(map-get($spirit-colors, accent), 0.2) 0%,
-            transparent 70%
-        );
         border-radius: 50%;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -378,6 +411,7 @@ $border-radius: 10px;
         width: 100%;
         height: 100%;
         object-fit: contain;
+        fill: map-get($spirit-colors, secondary);
     }
 }
 
@@ -400,7 +434,9 @@ $border-radius: 10px;
     .script {
         font-style: normal;
         font-weight: bold;
-        color: map-get($spirit-colors, light);
+        color: map-get($spirit-colors, secondary);
+
+        
     }
 }
 
@@ -429,7 +465,10 @@ $border-radius: 10px;
 // Секция присутствия
 .spirit-presence {
     padding: $padding-section;
-    background: map-get($spirit-colors, secondary);
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, secondary) 0%,
+        map-get($spirit-colors, caramel) 100%
+    );
 }
 
 .presence-content {
@@ -474,7 +513,11 @@ $border-radius: 10px;
 // Футер
 .footer__spirit {
     padding: 50px 0;
-    background-color: map-get($spirit-colors, primary);
+    background-color: linear-gradient(135deg,
+        map-get($spirit-colors, primary) 0%,
+        map-get($spirit-colors, cream) 100%
+    );
+    border-top: 1px solid map-get($spirit-colors, cream);
 
     &__content {
         @include container;
@@ -492,7 +535,7 @@ $border-radius: 10px;
         transition: map-get($transitions, default);
 
         &:hover {
-            color: map-get($spirit-colors, accent);
+            color: map-get($spirit-colors, gold);
         }
     }
 }
@@ -506,7 +549,7 @@ $border-radius: 10px;
     height: 50px;
     border-radius: 50%;
     background: map-get($spirit-colors, accent);
-    color: map-get($spirit-colors, text);
+    color: map-get($spirit-colors, light);
     border: none;
     cursor: pointer;
     font-size: 24px;
@@ -698,9 +741,9 @@ $border-radius: 10px;
 // Секция Пятидесятницы
 .spirit-pentecost {
     padding: $padding-section;
-    background: linear-gradient(135deg, 
-        darken(map-get($spirit-colors, primary), 5%), 
-        darken(map-get($spirit-colors, secondary), 5%)
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, gold) 0%,
+        map-get($spirit-colors, amber) 100%
     );
     position: relative;
     overflow: hidden;
@@ -748,7 +791,6 @@ $border-radius: 10px;
         left: -20px;
         right: 20px;
         bottom: 20px;
-        border: 2px solid map-get($spirit-colors, accent);
         z-index: -1;
         border-radius: $border-radius;
     }
@@ -941,6 +983,57 @@ $border-radius: 10px;
 
         .timeline-dot {
             left: 10px !important;
+        }
+    }
+}
+
+// Обновляем стили кнопок
+.btn {
+    &-primary {
+        background: map-get($spirit-colors, gold);
+        border-color: map-get($spirit-colors, bronze);
+        color: map-get($spirit-colors, dark);
+        
+        &:hover {
+            background: map-get($spirit-colors, amber);
+            border-color: map-get($spirit-colors, gold);
+        }
+    }
+}
+
+// Обновляем стили навигации
+.nav {
+    background: rgba(255, 248, 231, 0.95);
+    border-bottom: 1px solid map-get($spirit-colors, cream);
+    
+    &__link {
+        color: map-get($spirit-colors, text);
+        
+        &:hover {
+            color: map-get($spirit-colors, gold);
+        }
+        
+        &.active {
+            color: map-get($spirit-colors, gold);
+            border-color: map-get($spirit-colors, gold);
+        }
+    }
+}
+
+// Обновляем стили футера
+.footer {
+    background: linear-gradient(135deg,
+        map-get($spirit-colors, primary) 0%,
+        map-get($spirit-colors, cream) 100%
+    );
+    color: map-get($spirit-colors, text);
+    border-top: 1px solid map-get($spirit-colors, cream);
+    
+    a {
+        color: map-get($spirit-colors, text);
+        
+        &:hover {
+            color: map-get($spirit-colors, gold);
         }
     }
 } 
