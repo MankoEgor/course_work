@@ -1,0 +1,946 @@
+// Переменные
+$spirit-colors: (
+    primary: #2C1B47,    // Глубокий фиолетовый
+    secondary: #8B5CF6,  // Яркий фиолетовый
+    accent: #FCD34D,     // Теплое золото
+    text: #F3F4F6,      // Светлый серый
+    light: #A5B4FC,     // Светлый фиолетовый
+    dark: #1E1B4B       // Темный фиолетовый
+);
+
+$spirit-shadows: (
+    text: 0 2px 4px rgba(0, 0, 0, 0.3),
+    card: 0 4px 6px rgba(0, 0, 0, 0.2),
+    hover: 0 6px 12px rgba(0, 0, 0, 0.3),
+    accent: 0 4px 6px rgba(#FCD34D, 0.3)
+);
+
+$transitions: (
+    default: all 0.3s ease
+);
+
+$max-width: 1200px;
+$padding-section: 100px 0;
+$border-radius: 10px;
+
+// Миксины
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: map-get($spirit-colors, accent);
+    text-align: center;
+}
+
+@mixin card-shadow {
+    box-shadow: map-get($spirit-shadows, card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($spirit-shadows, hover);
+    }
+}
+
+@mixin container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Основные стили
+.spirit-page {
+    background: linear-gradient(135deg, map-get($spirit-colors, primary), map-get($spirit-colors, secondary));
+    color: map-get($spirit-colors, text);
+    min-height: 100vh;
+}
+
+// Навигация
+.spirit_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.3s ease;
+
+    &.scrolled {
+        background: map-get($spirit-colors, primary);
+    }
+
+    &__container {
+        @include container;
+        @include flex-between;
+    }
+
+    &__logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: map-get($spirit-colors, text);
+        text-decoration: none;
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    &__link {
+        color: map-get($spirit-colors, text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: map-get($transitions, default);
+        position: relative;
+
+        &:hover {
+            color: map-get($spirit-colors, accent);
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: map-get($spirit-colors, accent);
+            transition: map-get($transitions, default);
+        }
+    }
+}
+
+// Героическая секция
+.spirit-hero {
+    min-height: 100vh;
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                url("/img/spirit_bg.jpg") center/cover no-repeat;
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: 6rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: map-get($spirit-colors, text);
+        text-shadow: map-get($spirit-shadows, text);
+        animation: fadeIn 2s ease-out;
+    }
+
+    &__subtitle {
+        font-size: 2.5rem;
+        color: map-get($spirit-colors, accent);
+        text-shadow: map-get($spirit-shadows, text);
+        animation: fadeIn 2s ease-out 0.5s both;
+    }
+}
+
+// Секция ролей
+.spirit-roles {
+    padding: $padding-section;
+    background: map-get($spirit-colors, primary);
+}
+
+.roles-container {
+    @include container;
+}
+
+.roles-content {
+    h2 {
+        @include section-title;
+    }
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: $border-radius;
+    @include card-shadow;
+    text-align: center;
+
+    .role-icon {
+        margin: 0 auto 20px;
+        width: 80px;
+        height: 80px;
+        @include flex-center;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+
+    .script {
+        font-style: normal;
+        font-weight: bold;
+        color: map-get($spirit-colors, light);
+    }
+}
+
+// Секция плодов
+.spirit-fruits {
+    padding: $padding-section;
+    background: map-get($spirit-colors, secondary);
+}
+
+.fruits-container {
+    @include container;
+    text-align: center;
+
+    h2 {
+        @include section-title;
+    }
+}
+
+.fruits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.fruit-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: $border-radius;
+    @include card-shadow;
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+
+    .script {
+        font-style: normal;
+        font-weight: bold;
+        color: map-get($spirit-colors, light);
+    }
+}
+
+// Секция даров
+.spirit-gifts {
+    padding: $padding-section;
+    background: linear-gradient(135deg, 
+        map-get($spirit-colors, primary),
+        darken(map-get($spirit-colors, primary), 10%)
+    );
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/img/spirit-pattern.png') repeat;
+        opacity: 0.05;
+        animation: spiritFloat 20s linear infinite;
+    }
+}
+
+.gifts-container {
+    @include container;
+    position: relative;
+    z-index: 1;
+
+    h2 {
+        @include section-title;
+        color: map-get($spirit-colors, accent);
+        text-shadow: map-get($spirit-shadows, text);
+    }
+}
+
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gift-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: $border-radius;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, 
+            map-get($spirit-colors, accent),
+            map-get($spirit-colors, secondary)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: left;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: map-get($spirit-shadows, hover);
+
+        &::before {
+            transform: scaleX(1);
+        }
+
+        .gift-icon {
+            transform: scale(1.1);
+            
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.gift-icon {
+    width: 80px;
+    height: 80px;
+    margin: 30px auto 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: radial-gradient(
+            circle,
+            rgba(map-get($spirit-colors, accent), 0.2) 0%,
+            transparent 70%
+        );
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.gift-content {
+    padding: 0 30px 30px;
+    text-align: center;
+
+    h3 {
+        color: map-get($spirit-colors, accent);
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .script {
+        font-style: normal;
+        font-weight: bold;
+        color: map-get($spirit-colors, light);
+    }
+}
+
+@keyframes spiritFloat {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+// Медиа-запросы для секции даров
+@media (max-width: 1024px) {
+    .gifts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gifts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Секция присутствия
+.spirit-presence {
+    padding: $padding-section;
+    background: map-get($spirit-colors, secondary);
+}
+
+.presence-content {
+    @include container;
+    text-align: center;
+
+    h2 {
+        @include section-title;
+    }
+}
+
+.presence-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.presence-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: $border-radius;
+    @include card-shadow;
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: map-get($spirit-colors, accent);
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+
+    .script {
+        font-style: normal;
+        font-weight: bold;
+        color: map-get($spirit-colors, light);
+    }
+}
+
+// Футер
+.footer__spirit {
+    padding: 50px 0;
+    background-color: map-get($spirit-colors, primary);
+
+    &__content {
+        @include container;
+        text-align: center;
+    }
+
+    &__text {
+        margin-bottom: 20px;
+        color: map-get($spirit-colors, text);
+    }
+
+    &__link {
+        color: map-get($spirit-colors, text);
+        text-decoration: none;
+        transition: map-get($transitions, default);
+
+        &:hover {
+            color: map-get($spirit-colors, accent);
+        }
+    }
+}
+
+// Кнопка "Наверх"
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: map-get($spirit-colors, accent);
+    color: map-get($spirit-colors, text);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: map-get($transitions, default);
+    z-index: 1000;
+    @include flex-center;
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover {
+        background: darken(map-get($spirit-colors, accent), 10%);
+        transform: translateY(-3px);
+    }
+}
+
+// Анимации
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Медиа-запросы
+@media (max-width: 768px) {
+    .spirit_nav {
+        &__list {
+            display: none;
+        }
+
+        .burger-menu {
+            display: block;
+        }
+    }
+
+    .spirit-hero {
+        &__title {
+            font-size: 4rem;
+        }
+
+        &__subtitle {
+            font-size: 2rem;
+        }
+    }
+
+    .roles-grid,
+    .fruits-grid,
+    .presence-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-card {
+        flex: 0 0 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spirit-hero {
+        &__title {
+            font-size: 3rem;
+        }
+
+        &__subtitle {
+            font-size: 1.5rem;
+        }
+    }
+
+    .roles-content h2,
+    .fruits-container h2,
+    .gifts-container h2,
+    .presence-content h2 {
+        font-size: 2rem;
+    }
+}
+
+// Стили для бургер-меню
+.burger-menu {
+    display: none;
+    position: relative;
+    z-index: 1001;
+
+    .burger-icon {
+        width: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1002;
+
+        span {
+            width: 100%;
+            height: 2px;
+            background: map-get($spirit-colors, text);
+            transition: map-get($transitions, default);
+        }
+
+        &.active {
+            span {
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }
+        }
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: map-get($spirit-colors, primary);
+        padding: 80px 20px 20px;
+        transition: map-get($transitions, default);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+
+        &.active {
+            right: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 20px;
+
+                a {
+                    color: map-get($spirit-colors, text);
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                    display: block;
+                    padding: 10px 0;
+                    transition: map-get($transitions, default);
+
+                    &:hover {
+                        color: map-get($spirit-colors, accent);
+                    }
+
+                    &.active {
+                        color: map-get($spirit-colors, accent);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: map-get($transitions, default);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// Секция Пятидесятницы
+.spirit-pentecost {
+    padding: $padding-section;
+    background: linear-gradient(135deg, 
+        darken(map-get($spirit-colors, primary), 5%), 
+        darken(map-get($spirit-colors, secondary), 5%)
+    );
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/img/fire-pattern.png') repeat;
+        opacity: 0.05;
+        animation: fireFloat 20s linear infinite;
+    }
+}
+
+.pentecost-container {
+    @include container;
+    position: relative;
+    z-index: 1;
+
+    h2 {
+        @include section-title;
+        color: map-get($spirit-colors, accent);
+        text-shadow: map-get($spirit-shadows, text);
+    }
+}
+
+.pentecost-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.pentecost-image {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: 20px;
+        bottom: 20px;
+        border: 2px solid map-get($spirit-colors, accent);
+        z-index: -1;
+        border-radius: $border-radius;
+    }
+
+    .pentecost-img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius;
+        box-shadow: map-get($spirit-shadows, card);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}
+
+.pentecost-text {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.pentecost-event {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: map-get($spirit-shadows, card);
+
+    h3 {
+        color: map-get($spirit-colors, accent);
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+
+    .script {
+        font-style: normal;
+        font-weight: bold;
+        color: map-get($spirit-colors, light);
+    }
+}
+
+.pentecost-significance {
+    h3 {
+        color: map-get($spirit-colors, accent);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
+
+.significance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px;
+
+    li {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: $border-radius;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateX(10px);
+        }
+    }
+
+    .significance-title {
+        display: block;
+        color: map-get($spirit-colors, accent);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+}
+
+.pentecost-timeline {
+    position: relative;
+    padding: 40px 0;
+    margin-top: 60px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: map-get($spirit-colors, accent);
+        transform: translateX(-50%);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 0 40px;
+
+    &:nth-child(odd) {
+        left: 0;
+    }
+
+    &:nth-child(even) {
+        left: 50%;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background: map-get($spirit-colors, accent);
+        border-radius: 50%;
+        right: -10px;
+        box-shadow: map-get($spirit-shadows, accent);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: map-get($spirit-colors, text);
+            border-radius: 50%;
+        }
+    }
+
+    &:nth-child(even) .timeline-dot {
+        left: -10px;
+    }
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: map-get($spirit-shadows, card);
+
+    h4 {
+        color: map-get($spirit-colors, accent);
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+
+    p {
+        color: map-get($spirit-colors, text);
+        line-height: 1.6;
+    }
+}
+
+@keyframes fireFloat {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+// Медиа-запросы для секции Пятидесятницы
+@media (max-width: 768px) {
+    .pentecost-content {
+        grid-template-columns: 1fr;
+    }
+
+    .pentecost-timeline {
+        &::before {
+            left: 20px;
+        }
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+
+        .timeline-dot {
+            left: 10px !important;
+        }
+    }
+} 

@@ -1,0 +1,805 @@
+.spirit-page {
+  background: linear-gradient(135deg, #2C1B47, #8B5CF6);
+  color: #F3F4F6;
+  min-height: 100vh;
+}
+
+.spirit_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.3s ease;
+}
+.spirit_nav.scrolled {
+  background: #2C1B47;
+}
+.spirit_nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.spirit_nav__logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F3F4F6;
+  text-decoration: none;
+}
+.spirit_nav__list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.spirit_nav__link {
+  color: #F3F4F6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.spirit_nav__link:hover {
+  color: #FCD34D;
+}
+.spirit_nav__link:hover::after {
+  width: 100%;
+}
+.spirit_nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FCD34D;
+  transition: all 0.3s ease;
+}
+
+.spirit-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/img/spirit_bg.jpg") center/cover no-repeat;
+}
+.spirit-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+.spirit-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: 6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #F3F4F6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-out;
+}
+.spirit-hero__subtitle {
+  font-size: 2.5rem;
+  color: #FCD34D;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-out 0.5s both;
+}
+
+.spirit-roles {
+  padding: 100px 0;
+  background: #2C1B47;
+}
+
+.roles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.roles-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #FCD34D;
+  text-align: center;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.role-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.role-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.role-card .role-icon {
+  margin: 0 auto 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.role-card .role-icon img {
+  width: 100%;
+  height: 100%;
+}
+.role-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #FCD34D;
+}
+.role-card p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+.role-card .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #A5B4FC;
+}
+
+.spirit-fruits {
+  padding: 100px 0;
+  background: #8B5CF6;
+}
+
+.fruits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.fruits-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #FCD34D;
+  text-align: center;
+}
+
+.fruits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.fruit-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.fruit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.fruit-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #FCD34D;
+}
+.fruit-card p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+.fruit-card .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #A5B4FC;
+}
+
+.spirit-gifts {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #2C1B47, #150d22);
+  position: relative;
+  overflow: hidden;
+}
+.spirit-gifts::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/img/spirit-pattern.png") repeat;
+  opacity: 0.05;
+  animation: spiritFloat 20s linear infinite;
+}
+
+.gifts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.gifts-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #FCD34D;
+  text-align: center;
+  color: #FCD34D;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.gift-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.gift-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FCD34D, #8B5CF6);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+.gift-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.gift-card:hover::before {
+  transform: scaleX(1);
+}
+.gift-card:hover .gift-icon {
+  transform: scale(1.1);
+}
+.gift-card:hover .gift-icon::after {
+  opacity: 1;
+}
+
+.gift-icon {
+  width: 80px;
+  height: 80px;
+  margin: 30px auto 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.gift-icon::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(252, 211, 77, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gift-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.gift-content {
+  padding: 0 30px 30px;
+  text-align: center;
+}
+.gift-content h3 {
+  color: #FCD34D;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.gift-content p {
+  color: #F3F4F6;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+.gift-content .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #A5B4FC;
+}
+
+@keyframes spiritFloat {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .gifts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .gifts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.spirit-presence {
+  padding: 100px 0;
+  background: #8B5CF6;
+}
+
+.presence-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.presence-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #FCD34D;
+  text-align: center;
+}
+
+.presence-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.presence-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.presence-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.presence-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #FCD34D;
+}
+.presence-item p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+.presence-item .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #A5B4FC;
+}
+
+.footer__spirit {
+  padding: 50px 0;
+  background-color: #2C1B47;
+}
+.footer__spirit__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.footer__spirit__text {
+  margin-bottom: 20px;
+  color: #F3F4F6;
+}
+.footer__spirit__link {
+  color: #F3F4F6;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer__spirit__link:hover {
+  color: #FCD34D;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #FCD34D;
+  color: #F3F4F6;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  background: #fbc71b;
+  transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .spirit_nav__list {
+    display: none;
+  }
+  .spirit_nav .burger-menu {
+    display: block;
+  }
+  .spirit-hero__title {
+    font-size: 4rem;
+  }
+  .spirit-hero__subtitle {
+    font-size: 2rem;
+  }
+  .roles-grid,
+  .fruits-grid,
+  .presence-list {
+    grid-template-columns: 1fr;
+  }
+  .gift-card {
+    flex: 0 0 250px;
+  }
+}
+@media (max-width: 480px) {
+  .spirit-hero__title {
+    font-size: 3rem;
+  }
+  .spirit-hero__subtitle {
+    font-size: 1.5rem;
+  }
+  .roles-content h2,
+  .fruits-container h2,
+  .gifts-container h2,
+  .presence-content h2 {
+    font-size: 2rem;
+  }
+}
+.burger-menu {
+  display: none;
+  position: relative;
+  z-index: 1001;
+}
+.burger-menu .burger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1002;
+}
+.burger-menu .burger-icon span {
+  width: 100%;
+  height: 2px;
+  background: #F3F4F6;
+  transition: all 0.3s ease;
+}
+.burger-menu .burger-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-menu .burger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger-menu .burger-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.burger-menu .menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: #2C1B47;
+  padding: 80px 20px 20px;
+  transition: all 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+.burger-menu .menu.active {
+  right: 0;
+}
+.burger-menu .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.burger-menu .menu ul li {
+  margin-bottom: 20px;
+}
+.burger-menu .menu ul li a {
+  color: #F3F4F6;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+.burger-menu .menu ul li a:hover {
+  color: #FCD34D;
+}
+.burger-menu .menu ul li a.active {
+  color: #FCD34D;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.spirit-pentecost {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #211435, #7a44f5);
+  position: relative;
+  overflow: hidden;
+}
+.spirit-pentecost::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/img/fire-pattern.png") repeat;
+  opacity: 0.05;
+  animation: fireFloat 20s linear infinite;
+}
+
+.pentecost-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.pentecost-container h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #FCD34D;
+  text-align: center;
+  color: #FCD34D;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pentecost-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.pentecost-image {
+  position: relative;
+}
+.pentecost-image::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid #FCD34D;
+  z-index: -1;
+  border-radius: 10px;
+}
+.pentecost-image .pentecost-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.pentecost-image .pentecost-img:hover {
+  transform: scale(1.02);
+}
+
+.pentecost-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.pentecost-event {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.pentecost-event h3 {
+  color: #FCD34D;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.pentecost-event p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+.pentecost-event .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #A5B4FC;
+}
+
+.pentecost-significance h3 {
+  color: #FCD34D;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.significance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+}
+.significance-list li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.significance-list li:hover {
+  transform: translateX(10px);
+}
+.significance-list .significance-title {
+  display: block;
+  color: #FCD34D;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.significance-list p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+
+.pentecost-timeline {
+  position: relative;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+.pentecost-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #FCD34D;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 0 40px;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item .timeline-dot {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #FCD34D;
+  border-radius: 50%;
+  right: -10px;
+  box-shadow: 0 4px 6px rgba(252, 211, 77, 0.3);
+}
+.timeline-item .timeline-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #F3F4F6;
+  border-radius: 50%;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.timeline-content h4 {
+  color: #FCD34D;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.timeline-content p {
+  color: #F3F4F6;
+  line-height: 1.6;
+}
+
+@keyframes fireFloat {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+@media (max-width: 768px) {
+  .pentecost-content {
+    grid-template-columns: 1fr;
+  }
+  .pentecost-timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px;
+  }
+  .timeline-item .timeline-dot {
+    left: 10px !important;
+  }
+}/*# sourceMappingURL=spirit.css.map */
