@@ -57,172 +57,169 @@ body {
   overflow-x: hidden;
 }
 
-// Основная страница
 .jesus-page {
   background: $dark-bg;
   color: $white;
   min-height: 100vh;
-}
 
-// Навигация
-.jesus_nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 20px 0;
-  transition: background 0.3s ease;
-
-  &.scrolled {
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
-  }
-
-  &__container {
-    @include container;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__logo {
-    font-family: $font-primary;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: $white;
-    text-decoration: none;
-  }
-
-  &__list {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-  }
-
-  &__link {
-    color: $white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: $transition;
-    position: relative;
-
-    &:hover {
-      color: $primary-color;
-
-      &::after {
-        width: 100%;
-      }
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: $primary-color;
-      transition: $transition;
-    }
-  }
-}
-
-// Бургер-меню
-.burger-menu {
-  display: none;
-  position: relative;
-}
-
-.burger-icon {
-  width: 30px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 5px;
-
-  span {
+  .jesus_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 2px;
-    background: $white;
-    transition: $transition;
-  }
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.3s ease;
 
-  &.active {
-    span {
-      &:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-
-      &:nth-child(2) {
-        opacity: 0;
-      }
-
-      &:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
+    &.scrolled {
+        background: $dark-bg;
     }
-  }
-}
 
-.menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  max-width: 300px;
-  height: 100vh;
-  background: $dark-bg;
-  padding: 80px 20px 20px;
-  transition: $transition;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    &__container {
+        @include container;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  &.active {
-    right: 0;
-  }
+        .burger-menu {
+            display: none;
+            position: relative;
+            
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+            .burger-icon {
+                width: 30px;
+                height: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                padding: 5px;
 
-    li {
-      margin-bottom: 20px;
+                span {
+                        width: 100%;
+                        height: 2px;
+                        background: $white;
+                        transition: $transition;
+                }
 
-      a {
-        color: $white;
-        text-decoration: none;
-        font-size: 1.2rem;
-        display: block;
-        padding: 10px 0;
-        transition: $transition;
+                &.active {
+                        span {
+                        &:nth-child(1) {
+                            transform: rotate(45deg) translate(5px, 5px);
+                        }
 
-        &:hover {
-          color: $primary-color;
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+
+                        &:nth-child(3) {
+                            transform: rotate(-45deg) translate(5px, -5px);
+                        }
+                        }
+                }
+            }
+
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: $dark-bg;
+                padding: 80px 20px 20px;
+                transition: $transition;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+
+                &.active {
+                    right: 0;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        margin-bottom: 20px;
+
+                        a {
+                            color: $white;
+                            text-decoration: none;
+                            font-size: 1.2rem;
+                            display: block;
+                            padding: 10px 0;
+                            transition: $transition;
+
+                            &:hover {
+                            color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
-}
 
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: $transition;
+    .menu-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: $transition;
 
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+    &__logo {
+            font-family: $font-primary;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: $white;
+            text-decoration: none;
+        }
+
+        &__list {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        &__link {
+            color: $white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: $transition;
+            position: relative;
+
+            &:hover {
+            color: $primary-color;
+
+            &::after {
+                width: 100%;
+                }
+            }
+
+            &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $primary-color;
+            transition: $transition;
+            }
+        }
+   }
 }
 
 // Героическая секция
@@ -632,6 +629,75 @@ body {
   }
 }
 
+@media (max-width: 320px) {
+    
+    .miracles-container{
+        padding: 29px;
+
+        .miracles-slider{
+            gap: 11.5%;
+
+            .miracle-slide{
+                margin: 0 0 0 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) and (min-width: 321px) {
+    .miracles-container{
+        padding: 50px;
+
+        .miracles-slider{
+            gap: 25%;
+        }
+    }
+}
+
+
+@media (max-width: 720px) and (min-width: 669px){
+    .miracles-container{
+        padding: 0 56px;
+
+        .miracles-slider{
+            gap: 9.5%;
+        }
+    }
+}
+
+@media (max-width: 669px) and (min-width: 656px) {
+    .miracles-container{
+        padding: 0 56px;
+
+        .miracles-slider{
+            gap: 8%;
+        }    
+    }
+}
+
+@media (max-width: 654px) and (min-width: 640px) {
+    .miracles-container{
+        padding: 0 60px;
+
+        .miracles-slider{
+            gap: 4%;
+        }
+    }
+}
+
+@media (max-width: 654px) and (min-width: 640px) {
+    .miracles-container{
+        padding: 0 60px;
+
+        .miracles-slider{
+            gap: 4%;
+        }
+    }
+}
+
+
+
+
 @media (max-width: 480px) {
   .jesus-hero {
     &__title {
@@ -651,13 +717,27 @@ body {
   }
 }
 
-@media (max-width: 1024px){
+@media (max-width: 767px) {
+    .jesus-page{
+        .jesus_nav{
+            &__list{
+                display: none;
+            }
+
+            .burger-menu{
+                display: flex;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
      .miracles-slider{
         gap: 41px;
     }
 }
 
-@media(max-width: 1184px){
+@media(max-width: 1184px) {
     .miracles-slider{
         gap: 8%;
     }

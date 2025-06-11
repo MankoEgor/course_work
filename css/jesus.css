@@ -15,8 +15,7 @@ body {
   color: #ffffff;
   min-height: 100vh;
 }
-
-.jesus_nav {
+.jesus-page .jesus_nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -25,12 +24,10 @@ body {
   padding: 20px 0;
   transition: background 0.3s ease;
 }
-.jesus_nav.scrolled {
-  background: rgba(26, 26, 26, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+.jesus-page .jesus_nav.scrolled {
+  background: #1a1a1a;
 }
-.jesus_nav__container {
+.jesus-page .jesus_nav__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -38,48 +35,11 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.jesus_nav__logo {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-}
-.jesus_nav__list {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-.jesus_nav__link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-}
-.jesus_nav__link:hover {
-  color: #d63a24;
-}
-.jesus_nav__link:hover::after {
-  width: 100%;
-}
-.jesus_nav__link::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #d63a24;
-  transition: all 0.3s ease;
-}
-
-.burger-menu {
+.jesus-page .jesus_nav__container .burger-menu {
   display: none;
   position: relative;
 }
-
-.burger-icon {
+.jesus-page .jesus_nav__container .burger-menu .burger-icon {
   width: 30px;
   height: 20px;
   display: flex;
@@ -88,23 +48,22 @@ body {
   cursor: pointer;
   padding: 5px;
 }
-.burger-icon span {
+.jesus-page .jesus_nav__container .burger-menu .burger-icon span {
   width: 100%;
   height: 2px;
   background: #ffffff;
   transition: all 0.3s ease;
 }
-.burger-icon.active span:nth-child(1) {
+.jesus-page .jesus_nav__container .burger-menu .burger-icon.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-.burger-icon.active span:nth-child(2) {
+.jesus-page .jesus_nav__container .burger-menu .burger-icon.active span:nth-child(2) {
   opacity: 0;
 }
-.burger-icon.active span:nth-child(3) {
+.jesus-page .jesus_nav__container .burger-menu .burger-icon.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-
-.menu {
+.jesus-page .jesus_nav__container .burger-menu .menu {
   position: fixed;
   top: 0;
   right: -100%;
@@ -116,18 +75,18 @@ body {
   transition: all 0.3s ease;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
 }
-.menu.active {
+.jesus-page .jesus_nav__container .burger-menu .menu.active {
   right: 0;
 }
-.menu ul {
+.jesus-page .jesus_nav__container .burger-menu .menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.menu ul li {
+.jesus-page .jesus_nav__container .burger-menu .menu ul li {
   margin-bottom: 20px;
 }
-.menu ul li a {
+.jesus-page .jesus_nav__container .burger-menu .menu ul li a {
   color: #ffffff;
   text-decoration: none;
   font-size: 1.2rem;
@@ -135,11 +94,10 @@ body {
   padding: 10px 0;
   transition: all 0.3s ease;
 }
-.menu ul li a:hover {
+.jesus-page .jesus_nav__container .burger-menu .menu ul li a:hover {
   color: #d63a24;
 }
-
-.menu-overlay {
+.jesus-page .jesus_nav .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -151,9 +109,44 @@ body {
   visibility: hidden;
   transition: all 0.3s ease;
 }
-.menu-overlay.active {
+.jesus-page .jesus_nav .menu-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+.jesus-page .jesus_nav__logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+.jesus-page .jesus_nav__list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.jesus-page .jesus_nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.jesus-page .jesus_nav__link:hover {
+  color: #d63a24;
+}
+.jesus-page .jesus_nav__link:hover::after {
+  width: 100%;
+}
+.jesus-page .jesus_nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d63a24;
+  transition: all 0.3s ease;
 }
 
 .jesus-hero {
@@ -538,6 +531,57 @@ body {
     flex: 0 0 250px;
   }
 }
+@media (max-width: 320px) {
+  .miracles-container {
+    padding: 29px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 11.5%;
+  }
+  .miracles-container .miracles-slider .miracle-slide {
+    margin: 0 0 0 10px;
+  }
+}
+@media (max-width: 350px) and (min-width: 321px) {
+  .miracles-container {
+    padding: 50px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 25%;
+  }
+}
+@media (max-width: 720px) and (min-width: 669px) {
+  .miracles-container {
+    padding: 0 56px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 9.5%;
+  }
+}
+@media (max-width: 669px) and (min-width: 656px) {
+  .miracles-container {
+    padding: 0 56px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 8%;
+  }
+}
+@media (max-width: 654px) and (min-width: 640px) {
+  .miracles-container {
+    padding: 0 60px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 4%;
+  }
+}
+@media (max-width: 654px) and (min-width: 640px) {
+  .miracles-container {
+    padding: 0 60px;
+  }
+  .miracles-container .miracles-slider {
+    gap: 4%;
+  }
+}
 @media (max-width: 480px) {
   .jesus-hero__title {
     font-size: 3rem;
@@ -550,6 +594,14 @@ body {
   .promises-content h2,
   .miracles-container h2 {
     font-size: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .jesus-page .jesus_nav__list {
+    display: none;
+  }
+  .jesus-page .jesus_nav .burger-menu {
+    display: flex;
   }
 }
 @media (max-width: 1024px) {
