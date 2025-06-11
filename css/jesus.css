@@ -38,6 +38,7 @@ body {
 .jesus-page .jesus_nav__container .burger-menu {
   display: none;
   position: relative;
+  z-index: 1001;
 }
 .jesus-page .jesus_nav__container .burger-menu .burger-icon {
   width: 30px;
@@ -47,6 +48,7 @@ body {
   justify-content: space-between;
   cursor: pointer;
   padding: 5px;
+  z-index: 1002;
 }
 .jesus-page .jesus_nav__container .burger-menu .burger-icon span {
   width: 100%;
@@ -72,8 +74,9 @@ body {
   height: 100vh;
   background: #1a1a1a;
   padding: 80px 20px 20px;
-  transition: all 0.3s ease;
+  transition: right 0.3s ease;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
 }
 .jesus-page .jesus_nav__container .burger-menu .menu.active {
   right: 0;
@@ -97,6 +100,9 @@ body {
 .jesus-page .jesus_nav__container .burger-menu .menu ul li a:hover {
   color: #d63a24;
 }
+.jesus-page .jesus_nav__container .burger-menu .menu ul li a.active {
+  color: #d63a24;
+}
 .jesus-page .jesus_nav .menu-overlay {
   position: fixed;
   top: 0;
@@ -104,7 +110,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -601,7 +607,7 @@ body {
     display: none;
   }
   .jesus-page .jesus_nav .burger-menu {
-    display: flex;
+    display: block;
   }
 }
 @media (max-width: 1024px) {
