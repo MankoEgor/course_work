@@ -1,668 +1,664 @@
-// Jesus page specific variables
-$jesus-colors: (
-    primary: #1a1a1a,
-    secondary: #2d2d2d,
-    accent: #c5a47e,
-    contrast: #d63a24,
-    text: #ffffff,
-    light: #e0e0e0,
-    dark: #000000
-);
+// Переменные
+$primary-color: #d63a24;
+$secondary-color: #c5a47e;
+$dark-bg: #1a1a1a;
+$medium-bg: #2d2d2d;
+$white: #ffffff;
+$light-gray: #e0e0e0;
 
-$jesus-shadows: (
-    text: 0 2px 4px rgba(0, 0, 0, 0.5),
-    card: 0 4px 8px rgba(0, 0, 0, 0.3),
-    hover: 0 8px 16px rgba(0, 0, 0, 0.4)
-);
+$font-primary: "Montserrat", sans-serif;
+$font-secondary: "Playfair Display", serif;
 
-$transitions: (
-    default: all 0.3s ease
-);
+$max-width: 1200px;
+$padding-section: 100px 0;
+$border-radius: 10px;
+$transition: all 0.3s ease;
 
-$shadows: (
-    default: 0 2px 10px rgba(0, 0, 0, 0.1)
-);
+// Миксины
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-@mixin flex-between {
+@mixin section-title {
+  font-family: $font-secondary;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: $primary-color;
+}
+
+@mixin card-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Основные стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Основная страница
+.jesus-page {
+  background: $dark-bg;
+  color: $white;
+  min-height: 100vh;
+}
+
+// Навигация
+.jesus_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.3s ease;
+
+  &.scrolled {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  &__container {
+    @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-// Jesus page specific styles
-.jesus-page {
-    background: map-get($jesus-colors, primary);
-    color: map-get($jesus-colors, text);
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+  }
 
-.jesus_nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: map-get($jesus-shadows, default);
-    z-index: 1000;
-    padding: 20px 0;
+  &__logo {
+    font-family: $font-primary;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+  }
 
-    .burger-menu {
-        display: none;
-    }
-
-    &.scrolled {
-        background: map-get($jesus-colors, primary);
-    }
-
-    &__container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        @include flex-between;
-    }
-
-    &__logo {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: map-get($jesus-colors, text);
-        text-decoration: none;
-    }
-
-    &__list {
-        display: flex;
-        list-style: none;
-        gap: 30px;
-    }
-
-    &__link {
-        color: map-get($jesus-colors, text);
-        text-decoration: none;
-        font-weight: 500;
-        transition: map-get($transitions, default);
-        position: relative;
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: map-get($jesus-colors, text);
-            transition: map-get($transitions, default);
-        }
-
-        &:hover::after {
-            width: 100%;
-        }
-    }
-}
-
-// Hero section
-.jesus-hero {
-    min-height: 100vh;
+  &__list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    list-style: none;
+    gap: 30px;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: $transition;
     position: relative;
-    background: url('/img/jesus_bg.jpeg') center/cover no-repeat fixed;
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-        z-index: 1;
+
+    &:hover {
+      color: $primary-color;
+
+      &::after {
+        width: 100%;
+      }
     }
 
-    &__content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 20px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $primary-color;
+      transition: $transition;
     }
+  }
+}
 
-    &__title {
-        font-family: 'Playfair Display', serif;
-        font-size: 6rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: map-get($jesus-colors, text);
-        text-shadow: map-get($jesus-shadows, text);
-        animation: fadeIn 2s ease-out;
+// Бургер-меню
+.burger-menu {
+  display: none;
+  position: relative;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5px;
+
+  span {
+    width: 100%;
+    height: 2px;
+    background: $white;
+    transition: $transition;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
     }
+  }
+}
 
-    &__subtitle {
-        font-size: 2.5rem;
-        color: map-get($jesus-colors, contrast);
-        text-shadow: map-get($jesus-shadows, text);
-        animation: fadeIn 2s ease-out 0.5s both;
-    }
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: $dark-bg;
+  padding: 80px 20px 20px;
+  transition: $transition;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
 
-    &__scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 2;
-        text-align: center;
-        animation: bounce 2s infinite;
+  &.active {
+    right: 0;
+  }
 
-        span {
-            display: block;
-            color: map-get($jesus-colors, light);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px 0;
+        transition: $transition;
+
+        &:hover {
+          color: $primary-color;
         }
+      }
     }
+  }
 }
 
-.scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid map-get($jesus-colors, accent);
-    border-bottom: 2px solid map-get($jesus-colors, accent);
-    transform: rotate(45deg);
-    margin: 0 auto;
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-// Life section
+// Героическая секция
+.jesus-hero {
+  min-height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+              url("/img/jesus_bg.jpeg") center/cover no-repeat;
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-family: $font-secondary;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-out;
+  }
+
+  &__subtitle {
+    font-size: 2.5rem;
+    color: $primary-color;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-out 0.5s both;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+// Секция жизни
 .jesus-life {
-    padding: 100px 0;
-    background: map-get($jesus-colors, secondary);
+  padding: $padding-section;
+  background: $medium-bg;
 }
 
 .life-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
 }
 
 .life-image {
-    position: relative;
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        right: 20px;
-        bottom: 20px;
-        border: 2px solid map-get($jesus-colors, accent);
-        z-index: -1;
-    }
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid $secondary-color;
+    z-index: -1;
+  }
 }
 
 .life-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    box-shadow: map-get($jesus-shadows, card);
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .life-content {
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        margin-bottom: 40px;
-        color: map-get($jesus-colors, contrast);
-    }
+  h2 {
+    @include section-title;
+  }
 }
 
 .life-timeline {
-    position: relative;
-    padding-left: 30px;
+  position: relative;
+  padding-left: 30px;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 2px;
-        height: 100%;
-        background: map-get($jesus-colors, text);
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: $white;
+  }
 }
 
 .timeline-event {
-    position: relative;
-    margin-bottom: 40px;
-    padding-left: 30px;
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -6px;
-        width: 14px;
-        height: 14px;
-        background: map-get($jesus-colors, contrast);
-        border-radius: 50%;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 14px;
+    height: 14px;
+    background: $primary-color;
+    border-radius: 50%;
+  }
 
-    span{
-        // .event-year {
-        display: block;
-        font-size: 1.2rem;
-        color: map-get($jesus-colors, contrast);
-        margin-bottom: 10px;
-    // }
-    }
+  span {
+    display: block;
+    font-size: 1.2rem;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
 
-    h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: map-get($jesus-colors, text);
-    }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: $white;
+  }
 
-    p {
-        color: map-get($jesus-colors, light);
-        line-height: 1.6;
-    }
-
+  p {
+    color: $light-gray;
+    line-height: 1.6;
+  }
 }
 
-// Teachings section
+// Секция учений
 .jesus-teachings {
-    padding: 100px 0;
-    background: map-get($jesus-colors, primary);
-    text-align: center;
+  padding: $padding-section;
+  background: $dark-bg;
+  text-align: center;
 
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        margin-bottom: 60px;
-        color: map-get($jesus-colors, contrast);
-    }
+  h2 {
+    @include section-title;
+  }
 }
 
 .teachings-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .teaching-card {
-    background: map-get($jesus-colors, secondary);
-    padding: 40px 30px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: map-get($jesus-shadows, card);
+  background: $medium-bg;
+  padding: 40px 30px;
+  border-radius: $border-radius;
+  @include card-shadow;
 
-    &:hover {
-        transform: translateY(-10px);
-        box-shadow: map-get($jesus-shadows, hover);
-    }
+  .teaching-icon {
 
-    p{
-        font-style: italic;
-    }
-
-    .script{
-        font-style: normal;
-        font-weight: bold;
-    }
-
-    .teaching-icon {
+    img{
         width: 80px;
         height: 80px;
-        margin: 0 auto 20px;
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
     }
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    @include flex-center;
+    font-size: 2rem;
+  }
 
-    h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: map-get($jesus-colors, contrast);
-    }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: $primary-color;
+  }
 
-    p {
-        color: map-get($jesus-colors, light);
-        line-height: 1.6;
-    }
+  p {
+    color: $light-gray;
+    line-height: 1.6;
+  }
+
+  .script {
+    font-style: normal;
+    font-weight: bold;
+    color: $secondary-color;
+  }
 }
 
-// Miracles section
+// Секция чудес
 .jesus-miracles {
-    padding: 100px 0;
-    background: map-get($jesus-colors, secondary);
-    overflow: hidden;
+  padding: $padding-section;
+  background: $medium-bg;
 }
 
 .miracles-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
+  @include container;
+  text-align: center;
 
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        margin-bottom: 60px;
-        color: map-get($jesus-colors, contrast);
-    }
-
-    .script{
-        font-weight: bold;
-    }
-
-    a{
-        color: map-get($jesus-colors, text);
-        text-decoration: none;
-
-        &:hover{
-            color: map-get($jesus-colors, contrast);
-        }
-    }
+  h2 {
+    @include section-title;
+  }
 }
 
 .miracles-slider {
-    display: flex;
-    gap: 120px;
-    overflow-x: auto;
-    padding: 50px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 50px 0;
+  scroll-snap-type: x mandatory;
 
-    &::-webkit-scrollbar {
-        height: 8px;
-    }
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
 
-    &::-webkit-scrollbar-track {
-        background: map-get($jesus-colors, primary);
-        border-radius: 4px;
-    }
+  &::-webkit-scrollbar-track {
+    background: $dark-bg;
+    border-radius: 4px;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background: map-get($jesus-colors, accent);
-        border-radius: 4px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background: $secondary-color;
+    border-radius: 4px;
+  }
 }
 
 .miracle-slide {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
-    background: map-get($jesus-colors, primary);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: map-get($jesus-shadows, card);
-    transition: transform 0.3s ease;
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: $dark-bg;
+  padding: 30px;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 
-    &:hover {
-        transform: scale(1.05);
-    }
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .miracle-content {
-    h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: map-get($jesus-colors, contrast);
-    }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: $primary-color;
+  }
 
-    p {
-        color: map-get($jesus-colors, light);
-        line-height: 1.6;
+  p {
+    color: $light-gray;
+    line-height: 1.6;
+  }
+
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
     }
+  }
 }
 
-// Promises section
+// Секция обещаний
 .jesus-promises {
-    padding: 100px 0;
-    background: map-get($jesus-colors, primary);
+  padding: $padding-section;
+  background: $dark-bg;
 }
 
 .promises-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
+  @include container;
+  text-align: center;
 
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 3rem;
-        margin-bottom: 60px;
-        color: map-get($jesus-colors, contrast);
-    }
+  h2 {
+    @include section-title;
+  }
 }
 
 .promises-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .promise-item {
-    background: map-get($jesus-colors, secondary);
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: map-get($jesus-shadows, card);
-    transition: transform 0.3s ease;
+  background: $medium-bg;
+  padding: 40px 30px;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: $primary-color;
+  }
+
+  p {
+    color: $light-gray;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .script {
+    font-style: normal;
+    font-weight: bold;
+    color: $secondary-color;
+  }
+}
+
+.footer__jesus {
+  padding: 50px 0;
+  background-color: $medium-bg;
+
+  &__content {
+    @include container;
+    text-align: center;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    color: $white;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    transition: $transition;
 
     &:hover {
-        transform: translateY(-10px);
+      color: $primary-color;
     }
-
-    h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: map-get($jesus-colors, contrast);
-    }
-
-    p {
-        color: map-get($jesus-colors, light);
-        line-height: 1.6;
-        font-style: italic;
-
-    }
-
-    .script{
-        font-style: normal;
-        font-weight: bold;
-    }
+  }
 }
 
-.footer__jesus{
+//
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+  z-index: 1000;
+  @include flex-center;
 
-    padding: 50px 0;
-    margin-top: 100px;
-    background-color: map-get($jesus-colors, secondary);
-    
-    &__content{
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
-    }
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
 
-    &__text{
-        margin-bottom: 20px;
-        color: map-get($jesus-colors , text);
-    }
-
-    &__link{
-        color: map-get($jesus-colors, text);
-        text-decoration: none;
-        transition: map-get($transitions, default);
-
-        &:hover {
-            color: map-get($jesus-colors, contrast);
-        }
-    }
+  &:hover {
+    background: darken($primary-color, 10%);
+    transform: translateY(-3px);
+  }
 }
 
-
-
-// Animations
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-}
-
-@media (max-width: 400px) {
-    .miracles-container{
-        padding: 0 40px;
-    }
-}
-
-// Responsive
+// Медиа-запросы
 @media (max-width: 768px) {
-    .jesus_nav {
-        .nav__list {
-            display: none;
-        }
-
-        .burger-menu {
-            display: block;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-
-            .burger-icon {
-                width: 30px;
-                height: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                cursor: pointer;
-                padding: 5px;
-                margin-top: 15px;
-
-                span {
-                    width: 100%;
-                    height: 2px;
-                    background: map-get($jesus-colors, text);
-                    transition: map-get($transitions, default);
-                }
-
-                &.active {
-                    span:nth-child(1) {
-                        transform: rotate(45deg) translate(5px, 5px);
-                    }
-
-                    span:nth-child(2) {
-                        opacity: 0;
-                    }
-
-                    span:nth-child(3) {
-                        transform: rotate(-45deg) translate(5px, -5px);
-                    }
-                }
-            }
-
-            .menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background: map-get($jesus-colors, primary);
-                padding: 80px 20px 20px;
-                transition: map-get($transitions, default);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-
-                &.active {
-                    right: 0;
-                }
-
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-
-                    li {
-                        margin-bottom: 20px;
-
-                        a {
-                            color: map-get($jesus-colors, text);
-                            text-decoration: none;
-                            font-size: 1.2rem;
-                            display: block;
-                            padding: 10px 0;
-                            transition: map-get($transitions, default);
-
-                            &:hover {
-                                color: map-get($jesus-colors, contrast);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  .jesus_nav {
+    &__list {
+      display: none;
     }
-    .jesus-hero {
-        &__title {
-            font-size: 4rem;
-        }
-        &__subtitle {
-            font-size: 2rem;
-        }
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .jesus-hero {
+    &__title {
+      font-size: 4rem;
     }
 
-    .life-container {
-        grid-template-columns: 1fr;
+    &__subtitle {
+      font-size: 2rem;
+    }
+  }
+
+  .life-container {
+    grid-template-columns: 1fr;
+  }
+
+  .teachings-grid,
+  .promises-list {
+    grid-template-columns: 1fr;
+  }
+
+  .miracle-slide {
+    flex: 0 0 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jesus-hero {
+    &__title {
+      font-size: 3rem;
     }
 
-    .teachings-grid,
-    .promises-list {
-        grid-template-columns: 1fr;
+    &__subtitle {
+      font-size: 1.5rem;
     }
+  }
 
-    .miracles-container{
-        padding: 0 87px;
-    }
+  .life-content h2,
+  .jesus-teachings h2,
+  .promises-content h2,
+  .miracles-container h2 {
+    font-size: 2rem;
+  }
+}
 
-    .miracles-slider{
-        padding: 50px 0px;
-    }
-
-
-    .miracle-slide {
-        flex: 0 0 250px;
+@media (max-width: 1024px){
+     .miracles-slider{
+        gap: 41px;
     }
 }
 
-@media (min-width: 768px){
+@media(max-width: 1184px){
     .miracles-slider{
-        gap: 95px;
-    }
-}
-
-@media (min-width:1024px){
-    .miracles-slider{
-        gap: 42px;
-    }
-}
-
-@media (min-width:1440px){
-    .miracles-slider{
-        gap: 120px;
+        gap: 8%;
     }
 }

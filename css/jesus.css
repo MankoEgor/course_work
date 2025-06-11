@@ -1,8 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
 .jesus-page {
   background: #1a1a1a;
   color: #ffffff;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 .jesus_nav {
@@ -12,12 +23,12 @@
   width: 100%;
   z-index: 1000;
   padding: 20px 0;
-}
-.jesus_nav .burger-menu {
-  display: none;
+  transition: background 0.3s ease;
 }
 .jesus_nav.scrolled {
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 .jesus_nav__container {
   max-width: 1200px;
@@ -46,6 +57,12 @@
   transition: all 0.3s ease;
   position: relative;
 }
+.jesus_nav__link:hover {
+  color: #d63a24;
+}
+.jesus_nav__link:hover::after {
+  width: 100%;
+}
 .jesus_nav__link::after {
   content: "";
   position: absolute;
@@ -53,32 +70,101 @@
   left: 0;
   width: 0;
   height: 2px;
+  background: #d63a24;
+  transition: all 0.3s ease;
+}
+
+.burger-menu {
+  display: none;
+  position: relative;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5px;
+}
+.burger-icon span {
+  width: 100%;
+  height: 2px;
   background: #ffffff;
   transition: all 0.3s ease;
 }
-.jesus_nav__link:hover::after {
+.burger-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: #1a1a1a;
+  padding: 80px 20px 20px;
+  transition: all 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+.menu.active {
+  right: 0;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu ul li {
+  margin-bottom: 20px;
+}
+.menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+.menu ul li a:hover {
+  color: #d63a24;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .jesus-hero {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   position: relative;
-  background: url("/img/jesus_bg.jpeg") center/cover no-repeat fixed;
-}
-.jesus-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-  z-index: 1;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/img/jesus_bg.jpeg") center/cover no-repeat;
 }
 .jesus-hero__content {
   position: relative;
@@ -101,31 +187,17 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   animation: fadeIn 2s ease-out 0.5s both;
 }
-.jesus-hero__scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  text-align: center;
-  animation: bounce 2s infinite;
-}
-.jesus-hero__scroll-indicator span {
-  display: block;
-  color: #e0e0e0;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-}
 
-.scroll-arrow {
-  width: 20px;
-  height: 20px;
-  border-right: 2px solid #c5a47e;
-  border-bottom: 2px solid #c5a47e;
-  transform: rotate(45deg);
-  margin: 0 auto;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 .jesus-life {
   padding: 100px 0;
   background: #2d2d2d;
@@ -165,7 +237,7 @@
 .life-content h2 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   color: #d63a24;
 }
 
@@ -239,30 +311,24 @@
   background: #2d2d2d;
   padding: 40px 30px;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .teaching-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
-.teaching-card p {
-  font-style: italic;
-}
-.teaching-card .script {
-  font-style: normal;
-  font-weight: bold;
-}
 .teaching-card .teaching-icon {
-  width: 80px;
-  height: 80px;
   margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
 }
 .teaching-card .teaching-icon img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 80px;
+  height: 80px;
 }
 .teaching-card h3 {
   font-size: 1.5rem;
@@ -273,11 +339,15 @@
   color: #e0e0e0;
   line-height: 1.6;
 }
+.teaching-card .script {
+  font-style: normal;
+  font-weight: bold;
+  color: #c5a47e;
+}
 
 .jesus-miracles {
   padding: 100px 0;
   background: #2d2d2d;
-  overflow: hidden;
 }
 
 .miracles-container {
@@ -292,24 +362,13 @@
   margin-bottom: 60px;
   color: #d63a24;
 }
-.miracles-container .script {
-  font-weight: bold;
-}
-.miracles-container a {
-  color: #ffffff;
-  text-decoration: none;
-}
-.miracles-container a:hover {
-  color: #d63a24;
-}
 
 .miracles-slider {
   display: flex;
-  gap: 120px;
+  gap: 30px;
   overflow-x: auto;
   padding: 50px 0;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 .miracles-slider::-webkit-scrollbar {
   height: 8px;
@@ -344,6 +403,13 @@
 .miracle-content p {
   color: #e0e0e0;
   line-height: 1.6;
+}
+.miracle-content a {
+  color: #c5a47e;
+  text-decoration: none;
+}
+.miracle-content a:hover {
+  color: #d63a24;
 }
 
 .jesus-promises {
@@ -393,11 +459,11 @@
 .promise-item .script {
   font-style: normal;
   font-weight: bold;
+  color: #c5a47e;
 }
 
 .footer__jesus {
   padding: 50px 0;
-  margin-top: 100px;
   background-color: #2d2d2d;
 }
 .footer__jesus__content {
@@ -419,91 +485,41 @@
   color: #d63a24;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d63a24;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 400px) {
-  .miracles-container {
-    padding: 0 40px;
-  }
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
+.back-to-top:hover {
+  background: #aa2e1d;
+  transform: translateY(-3px);
+}
+
 @media (max-width: 768px) {
-  .jesus_nav .nav__list {
+  .jesus_nav__list {
     display: none;
   }
-  .jesus_nav .burger-menu {
+  .burger-menu {
     display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
-  }
-  .jesus_nav .burger-menu .burger-icon {
-    width: 30px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    padding: 5px;
-    margin-top: 15px;
-  }
-  .jesus_nav .burger-menu .burger-icon span {
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
-    transition: all 0.3s ease;
-  }
-  .jesus_nav .burger-menu .burger-icon.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .jesus_nav .burger-menu .burger-icon.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .jesus_nav .burger-menu .burger-icon.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  .jesus_nav .burger-menu .menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    background: #1a1a1a;
-    padding: 80px 20px 20px;
-    transition: all 0.3s ease;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-  }
-  .jesus_nav .burger-menu .menu.active {
-    right: 0;
-  }
-  .jesus_nav .burger-menu .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .jesus_nav .burger-menu .menu ul li {
-    margin-bottom: 20px;
-  }
-  .jesus_nav .burger-menu .menu ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: block;
-    padding: 10px 0;
-    transition: all 0.3s ease;
-  }
-  .jesus_nav .burger-menu .menu ul li a:hover {
-    color: #d63a24;
   }
   .jesus-hero__title {
     font-size: 4rem;
@@ -518,28 +534,31 @@
   .promises-list {
     grid-template-columns: 1fr;
   }
-  .miracles-container {
-    padding: 0 87px;
-  }
-  .miracles-slider {
-    padding: 50px 0px;
-  }
   .miracle-slide {
     flex: 0 0 250px;
   }
 }
-@media (min-width: 768px) {
-  .miracles-slider {
-    gap: 95px;
+@media (max-width: 480px) {
+  .jesus-hero__title {
+    font-size: 3rem;
+  }
+  .jesus-hero__subtitle {
+    font-size: 1.5rem;
+  }
+  .life-content h2,
+  .jesus-teachings h2,
+  .promises-content h2,
+  .miracles-container h2 {
+    font-size: 2rem;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .miracles-slider {
-    gap: 42px;
+    gap: 41px;
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 1184px) {
   .miracles-slider {
-    gap: 120px;
+    gap: 8%;
   }
 }/*# sourceMappingURL=jesus.css.map */

@@ -332,6 +332,7 @@
     justify-content: space-between;
     cursor: pointer;
     padding: 5px;
+    margin-top: 15px;
   }
   .god_nav .burger-menu .burger-icon span {
     width: 100%;
@@ -386,5 +387,10 @@
 @media (max-width: 1024px) {
   .attributes-image {
     margin-left: 8px;
+  }
+}
+@media (min-width: 1024px) {
+  .jesus_nav__list {
+    margin-left: 450px;
   }
 }/*# sourceMappingURL=god.css.map */
