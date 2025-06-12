@@ -15,7 +15,8 @@ $spirit-colors: (
     pearl: #F5F5F5,
     ivory: #FFFFF0,
     sepia: #704214,
-    bronze: #CD7F32
+    bronze: #CD7F32,
+    fire: #FF0000
 );
 
 $spirit-shadows: (
@@ -741,10 +742,7 @@ $border-radius: 10px;
 // Секция Пятидесятницы
 .spirit-pentecost {
     padding: $padding-section;
-    background: linear-gradient(135deg,
-        map-get($spirit-colors, gold) 0%,
-        map-get($spirit-colors, amber) 100%
-    );
+    background: rgb(48, 45, 45); //map-get($spirit-colors, light);
     position: relative;
     overflow: hidden;
 
@@ -768,7 +766,7 @@ $border-radius: 10px;
 
     h2 {
         @include section-title;
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, fire);
         text-shadow: map-get($spirit-shadows, text);
     }
 }
@@ -821,7 +819,7 @@ $border-radius: 10px;
     box-shadow: map-get($spirit-shadows, card);
 
     h3 {
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, fire);
         font-size: 1.8rem;
         margin-bottom: 20px;
     }
@@ -834,13 +832,13 @@ $border-radius: 10px;
     .script {
         font-style: normal;
         font-weight: bold;
-        color: map-get($spirit-colors, light);
+        color: map-get($spirit-colors, accent);
     }
 }
 
 .pentecost-significance {
     h3 {
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, fire);
         font-size: 1.8rem;
         margin-bottom: 30px;
     }
@@ -866,7 +864,7 @@ $border-radius: 10px;
 
     .significance-title {
         display: block;
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, fire);
         font-size: 1.2rem;
         font-weight: 600;
         margin-bottom: 10px;
@@ -914,7 +912,7 @@ $border-radius: 10px;
         top: 0;
         width: 20px;
         height: 20px;
-        background: map-get($spirit-colors, accent);
+        background: map-get($spirit-colors, fire);
         border-radius: 50%;
         right: -10px;
         box-shadow: map-get($spirit-shadows, accent);
@@ -944,7 +942,7 @@ $border-radius: 10px;
     box-shadow: map-get($spirit-shadows, card);
 
     h4 {
-        color: map-get($spirit-colors, accent);
+        color: map-get($spirit-colors, fire);
         margin-bottom: 10px;
         font-size: 1.3rem;
     }
