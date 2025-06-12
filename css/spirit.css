@@ -602,7 +602,7 @@
 
 .spirit-pentecost {
   padding: 100px 0;
-  background: #545454;
+  background: #70000E;
   position: relative;
   overflow: hidden;
 }
@@ -631,7 +631,7 @@
   margin-bottom: 60px;
   color: #645d3b;
   text-align: center;
-  color: #FF0000;
+  color: #FFFFFF;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -680,12 +680,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .pentecost-event h3 {
-  color: #FF0000;
+  color: #FFFFFF;
   font-size: 1.8rem;
   margin-bottom: 20px;
 }
 .pentecost-event p {
-  color: #3E2C41;
+  color: #D4A373;
   line-height: 1.6;
 }
 .pentecost-event .script {
@@ -695,7 +695,7 @@
 }
 
 .pentecost-significance h3 {
-  color: #FF0000;
+  color: #FFFFFF;
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
@@ -718,13 +718,13 @@
 }
 .significance-list .significance-title {
   display: block;
-  color: #FF0000;
+  color: #FFFFFF;
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
 .significance-list p {
-  color: #3E2C41;
+  color: #D4A373;
   line-height: 1.6;
 }
 
@@ -740,7 +740,7 @@
   left: 50%;
   width: 2px;
   height: 100%;
-  background: #645d3b;
+  background: #FFFFFF;
   transform: translateX(-50%);
 }
 
@@ -761,7 +761,7 @@
   top: 0;
   width: 20px;
   height: 20px;
-  background: #FF0000;
+  background: #FFFFFF;
   border-radius: 50%;
   right: -10px;
   box-shadow: 0 4px 6px rgba(252, 211, 77, 0.3);
@@ -788,12 +788,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .timeline-content h4 {
-  color: #FF0000;
+  color: #FFFFFF;
   margin-bottom: 10px;
   font-size: 1.3rem;
 }
 .timeline-content p {
-  color: #3E2C41;
+  color: #D4A373;
   line-height: 1.6;
 }
 
