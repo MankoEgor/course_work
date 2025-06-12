@@ -691,7 +691,7 @@
 .pentecost-event .script {
   font-style: normal;
   font-weight: bold;
-  color: #645d3b;
+  color: gold;
 }
 
 .pentecost-significance h3 {
@@ -819,6 +819,11 @@
   }
   .timeline-item .timeline-dot {
     left: 10px !important;
+  }
+}
+@media (max-width: 375px) {
+  .pentecost-container h2 {
+    font-size: 3rem;
   }
 }
 .btn-primary {

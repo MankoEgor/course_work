@@ -632,6 +632,7 @@ $border-radius: 10px;
     }
 }
 
+
 // Стили для бургер-меню
 .burger-menu {
     display: none;
@@ -762,7 +763,11 @@ $border-radius: 10px;
     z-index: 1;
 
     h2 {
-        @include section-title;
+       font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: map-get($spirit-colors, accent);
+        text-align: center;
         color: map-get($spirit-colors, light);
         text-shadow: map-get($spirit-shadows, text);
     }
@@ -829,7 +834,7 @@ $border-radius: 10px;
     .script {
         font-style: normal;
         font-weight: bold;
-        color: map-get($spirit-colors, accent);
+        color: gold;
     }
 }
 
@@ -978,6 +983,14 @@ $border-radius: 10px;
 
         .timeline-dot {
             left: 10px !important;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .pentecost-container{
+        h2{
+            font-size: 3rem;
         }
     }
 }
