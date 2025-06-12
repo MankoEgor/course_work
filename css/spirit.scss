@@ -466,10 +466,7 @@ $border-radius: 10px;
 // Секция присутствия
 .spirit-presence {
     padding: $padding-section;
-    background: linear-gradient(135deg,
-        map-get($spirit-colors, secondary) 0%,
-        map-get($spirit-colors, caramel) 100%
-    );
+    background: map-get($spirit-colors, secondary);
 }
 
 .presence-content {
