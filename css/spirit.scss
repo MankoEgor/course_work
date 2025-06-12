@@ -987,10 +987,10 @@ $border-radius: 10px;
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 400px) and (min-width: 287px) {
     .pentecost-container{
         h2{
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
 }
