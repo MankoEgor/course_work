@@ -654,7 +654,7 @@ $border-radius: 10px;
         span {
             width: 100%;
             height: 2px;
-            background: map-get($spirit-colors, text);
+            background: map-get($spirit-colors, light);
             transition: map-get($transitions, default);
         }
 
