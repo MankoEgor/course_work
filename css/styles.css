@@ -120,8 +120,12 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 50px;
   color: #2c3e50;
+}
+.section__subtitle {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333333;
 }
 
 .feature-card,
@@ -293,70 +297,7 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .jesus_nav .nav__list {
+  .nav__list {
     display: none;
-  }
-  .jesus_nav .burger-container {
-    display: flex;
-    justify-content: flex-end;
-    z-index: 1001;
-  }
-  .jesus_nav .burger-container .burger-menu {
-    display: block;
-    margin-left: 435px;
-    margin-right: 12px;
-  }
-  .jesus_nav .burger-container .burger-menu .burger-icon {
-    width: 30px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  .jesus_nav .burger-container .burger-menu .burger-icon span {
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    transition: all 0.3s;
-  }
-  .jesus_nav .burger-container .burger-menu .menu {
-    display: none;
-    position: right;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #333;
-    padding: 20px 0;
-  }
-  .jesus_nav .burger-container .burger-menu .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .jesus_nav .burger-container .burger-menu .menu li {
-    padding: 10px 20px;
-  }
-  .jesus_nav .burger-container .burger-menu .menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  .jesus_nav .burger-container .burger-menu .burger-icon.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .jesus_nav .burger-container .burger-menu .burger-icon.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .jesus_nav .burger-container .burger-menu .burger-icon.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  .jesus_nav .burger-container .burger-menu .menu.active {
-    display: block;
-  }
-}
-@media (max-width: 400px) {
-  .burger-container .burger-menu {
-    margin-left: 50px;
   }
 }/*# sourceMappingURL=styles.css.map */
