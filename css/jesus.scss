@@ -61,6 +61,7 @@ body {
   background: $dark-bg;
   color: $white;
   min-height: 100vh;
+}
 
   .jesus_nav {
     position: fixed;
@@ -76,51 +77,51 @@ body {
     }
 
     &__container {
-        @include container;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      @include container;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-        .burger-menu {
-            display: none;
-            position: relative;
-            z-index: 1001;
+      .burger-menu {
+        display: none;
+        position: relative;
+        z-index: 1001;
 
-            .burger-icon {
-                width: 30px;
-                height: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                cursor: pointer;
-                padding: 5px;
-                z-index: 1002;
+        .burger-icon {
+          width: 30px;
+          height: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          cursor: pointer;
+          padding: 5px;
+          z-index: 1002;
 
-                span {
-                        width: 100%;
-                        height: 2px;
-                        background: $white;
-                        transition: $transition;
-                }
+          span {
+            width: 100%;
+            height: 2px;
+            background: $white;
+            transition: $transition;
+          }
 
-                &.active {
-                        span {
-                        &:nth-child(1) {
-                            transform: rotate(45deg) translate(5px, 5px);
-                        }
+          &.active {
+            span {
+              &:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+              }
 
-                        &:nth-child(2) {
-                            opacity: 0;
-                        }
+              &:nth-child(2) {
+                opacity: 0;
+              }
 
-                        &:nth-child(3) {
-                            transform: rotate(-45deg) translate(5px, -5px);
-                        }
-                        }
-                }
+              &:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+              }
             }
+          }
+        }
 
-            .menu {
+        .menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
@@ -163,70 +164,70 @@ body {
                         }
                     }
                 }
-            }
         }
+      }
     }
 
     .menu-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-                opacity: 0;
-                visibility: hidden;
-                transition: $transition;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition;
 
-                &.active {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
     &__logo {
-            font-family: $font-primary;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: $white;
-            text-decoration: none;
+      font-family: $font-primary;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+    }
+
+    &__list {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    &__link {
+      color: $white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: $transition;
+      position: relative;
+
+      &:hover {
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
         }
+      }
 
-        &__list {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: $transition;
+      }
+    }
+  }
 
-        &__link {
-            color: $white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: $transition;
-            position: relative;
-
-            &:hover {
-            color: $primary-color;
-
-            &::after {
-                width: 100%;
-                }
-            }
-
-            &::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: $primary-color;
-            transition: $transition;
-            }
-        }
-   }
-}
 
 // Героическая секция
 .jesus-hero {
@@ -601,15 +602,6 @@ body {
 
 // Медиа-запросы
 @media (max-width: 768px) {
-  .jesus_nav {
-    &__list {
-      display: none;
-    }
-  }
-
-  .burger-menu {
-    display: block;
-  }
 
   .jesus-hero {
     &__title {
@@ -659,7 +651,6 @@ body {
         }
     }
 }
-
 
 @media (max-width: 720px) and (min-width: 669px){
     .miracles-container{

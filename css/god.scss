@@ -354,7 +354,6 @@ $shadows: (
     }
 }
 
-// Responsive
 @media (max-width: 768px) {
     .god-hero {
         &__title {
@@ -396,7 +395,7 @@ $shadows: (
     }
 
     .god_nav {
-        .nav__list {
+        &__list {
             display: none;
         }
 
@@ -489,7 +488,7 @@ $shadows: (
 }
 
 @media (min-width:1024px) {
-    .jesus_nav{
+    .god_nav{
         &__list{
             margin-left: 450px;
         }

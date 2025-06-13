@@ -314,7 +314,7 @@
   .relationship-cards {
     grid-template-columns: 1fr;
   }
-  .god_nav .nav__list {
+  .god_nav__list {
     display: none;
   }
   .god_nav .burger-menu {
@@ -390,7 +390,7 @@
   }
 }
 @media (min-width: 1024px) {
-  .jesus_nav__list {
+  .god_nav__list {
     margin-left: 450px;
   }
 }/*# sourceMappingURL=god.css.map */

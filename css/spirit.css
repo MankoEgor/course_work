@@ -821,9 +821,17 @@
     left: 10px !important;
   }
 }
-@media (max-width: 400px) and (min-width: 287px) {
+@media (max-width: 400px) and (min-width: 315px) {
   .pentecost-container h2 {
     font-size: 2rem;
+  }
+  .timeline-content h4 {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 315px) {
+  .timeline-content h4 {
+    font-size: 0.9rem;
   }
 }
 .btn-primary {
